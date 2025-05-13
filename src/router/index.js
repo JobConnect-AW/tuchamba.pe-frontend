@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import SearchOffers from '@/app/offers/views/SearchOffers.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [],
+  routes: [{
+    path: '/search-offers',
+    component: SearchOffers
+  }],
 })
 
 export default router
