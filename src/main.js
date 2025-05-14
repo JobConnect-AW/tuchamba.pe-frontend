@@ -52,6 +52,7 @@ import SelectButton from "primevue/selectbutton";
 import { createPinia } from "pinia";
 import App from './App.vue';
 import Chart from 'primevue/chart';
+import MyPreset from './presets/my-preset';
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -61,7 +62,7 @@ app.use(router);
 
 app.use(PrimeVue, {
   theme: {
-    preset: Noir,
+    preset: MyPreset,
     options: {
       prefix: 'p',
       darkModeSelector: '.p-dark',

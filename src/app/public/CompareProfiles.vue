@@ -24,8 +24,8 @@
 
 <script setup>
 
-import FilterBar   from '@/app/shared/FilterBar.vue'
-import ProfileCard from '@/app/shared/ProfileCard.vue'
+import FilterBar   from '@/app/shared/components/FilterBar.vue'
+import ProfileCard from '@/app/shared/components/ProfileCard.vue'
 import { reactive } from 'vue'
 
 import juanImg    from '@/app/public/images/juan.jpg'
