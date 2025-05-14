@@ -1,4 +1,3 @@
-// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import CompareProfiles from '@/app/public/CompareProfiles.vue'
 import WorkerDashboard from '@/app/dashboard/pages/WorkerDashboard.vue'
@@ -7,6 +6,8 @@ import Configuracion from '@/app/trabajador/views/Configuracion.vue';
 import MyProfileTrabajador from '@/app/trabajador/views/MyProfile-Trabajador.vue';
 import Planes from '@/app/trabajador/views/Planes.vue';
 import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
+import Home from '@/app/userContext/pages/Home.vue';
+import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,8 +35,21 @@ const router = createRouter({
     {
       path: '/search-offers',
       component: SearchOffers
-    }
+    },
+    { path: '/', name: 'home', component: Home, meta: { title: 'Inicio' } },
+    { path: '/buscar-tecnicos', name: 'buscarTecnicos', component: BuscarTecnicos, meta: { title: 'Buscar Técnicos' } },
+    { path: '/ofertas', name: 'ofertas', component: Ofertas, meta: { title: 'Ofertas' } },
+    { path: '/comparar-perfiles', name: 'compararPerfiles', component: CompararPerfiles, meta: { title: 'Comparar Perfiles' } },
+    { path: '/configuracion', name: 'configuracion', component: Configuracion, meta: { title: 'Configuración' } },
+    { path: '/:pathMatch(.*)*', redirect: '/' }
   ]
 });
 
-export default router
+
+router.beforeEach((to, from, next) => {
+  const baseTitle = 'Mi Aplicación Vue';
+  document.title = `${baseTitle} | ${to.meta.title || 'Sin Título'}`;
+  next();
+});
+
+export default router;

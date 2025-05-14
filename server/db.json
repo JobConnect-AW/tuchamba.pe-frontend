@@ -24,7 +24,9 @@
                 "Cableado",
                 "Luminarias"
             ],
-            "certifications": ["Certificado de electricidad"],
+            "certifications": [
+                "Certificado de electricidad"
+            ],
             "availabity": "Lunes a Viernes",
             "hourlyRate": 100,
             "projectsCompleted": 2,
@@ -60,7 +62,10 @@
                 "Mantenimiento preventivo",
                 "Sistemas de emergencia"
             ],
-            "certifications": ["Técnico Electricista Certificado", "Seguridad Eléctrica Industrial"],
+            "certifications": [
+                "Técnico Electricista Certificado",
+                "Seguridad Eléctrica Industrial"
+            ],
             "availabity": "Lunes a Sábado",
             "hourlyRate": 120,
             "projectsCompleted": 15,
@@ -90,7 +95,10 @@
                 "Instalaciones residenciales",
                 "Energía solar"
             ],
-            "certifications": ["Especialista en Domótica", "Instalador Certificado de Paneles Solares"],
+            "certifications": [
+                "Especialista en Domótica",
+                "Instalador Certificado de Paneles Solares"
+            ],
             "availabity": "Martes a Domingo",
             "hourlyRate": 150,
             "projectsCompleted": 8,
