@@ -1,0 +1,140 @@
+/* Colores Globales */
+:root {
+  --primary-color: #0066FF;   /* Color principal */
+  --white-color: #FFFFFF;     /* Color blanco para texto */
+  --hover-color: #FF9900;     /* Color hover */
+  --sidebar-hover-color: #1C4790;  /* Color de hover del sidebar */
+}
+
+/* Estilo base para el cuerpo de la aplicación */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;  /* Fondo claro */
+  color: #333;  /* Color de texto por defecto */
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--white-color);
+}
+
+.sidebar li:hover {
+  background-color: var(--sidebar-hover-color); /* Hover en el sidebar */
+}
+
+.sidebar i {
+  margin-right: 10px;
+}
+
+/* Sidebar Links */
+.sidebar a {
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Botón y Elementos destacados */
+button,
+.pv-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+.pv-button:hover {
+  background-color: var(--hover-color);  /* Color de hover para botones */
+}
+
+/* Cards */
+.pv-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.pv-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+/* Input y Select */
+.pv-input-text,
+.pv-input-number,
+.pv-select {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.pv-input-text:focus,
+.pv-input-number:focus,
+.pv-select:focus {
+  border-color: var(--primary-color);  /* Color de borde cuando el campo está enfocado */
+}
+
+/* Tabla de Datos */
+.pv-data-table .p-datatable {
+  border-radius: 10px;
+}
+
+/* Modales y diálogos */
+.pv-dialog {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pv-dialog .p-dialog-header {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.pv-dialog .p-dialog-content {
+  color: #333;
+}
+
+/* Toast (Notificaciones) */
+.pv-toast {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.pv-toast .p-toast-message {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* Divider (Splitter) */
+.pv-splitter {
+  background-color: #ccc;
+}

@@ -1,17 +1,6 @@
-// import { createApp } from 'vue'
-// import { createPinia } from 'pinia'
-//
-// import App from './App.vue'
-// import router from './router'
-//
-// const app = createApp(App)
-//
-// app.use(createPinia())
-// app.use(router)
-//
-// app.mount('#app')
 import { createApp } from 'vue'
 import App from './app.vue'
+import './app/public/styles.css'
 
 // Vue Router
 import router from "./router/index.js";
@@ -24,9 +13,9 @@ import 'primeflex/primeflex.css';
 
 // PrimeVue Theme
 import Aura from '@primevue/themes/aura';
-
+// Tema claro de PrimeVue (cambiamos a Lara o Saga Blue)
 // PrimeVue Icons
-import 'primeicons/primeicons.css';  // Asegúrate de importar PrimeIcons
+import 'primeicons/primeicons.css';
 
 // Componentes de PrimeVue
 import Toast from "primevue/toast";
@@ -68,7 +57,7 @@ app.use(router);
 const pinia = createPinia();
 app.use(pinia);
 
-app.use(PrimeVue, { theme: { preset: Aura }, ripple: true })
+app.use(PrimeVue, { theme:{}})
   .use(ConfirmationService)
   .use(DialogService)
   .use(ToastService)
