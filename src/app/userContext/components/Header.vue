@@ -1,6 +1,5 @@
 <template>
   <div class="header">
-    <!-- Logo e título -->
     <div class="header-left">
       <div class="logo">
         <img src="../../assets/logo.png" alt="logo" class="user-avatar">
@@ -49,9 +48,9 @@ export default defineComponent({
   padding: 10px 20px;
   background-color: #fff;
   display: flex;
-  justify-content: space-between; /* Asegura que los elementos estén distribuidos */
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-left: 25px;
   border-radius: 20px;
 }
@@ -63,7 +62,7 @@ export default defineComponent({
 
 .header-left .logo {
   padding-top: 5px;
-  color: var(--primary-color); /* Usamos el color principal */
+  color: var(--primary-color);
   margin-right: 10px;
 }
 
@@ -87,7 +86,7 @@ export default defineComponent({
 }
 
 .header-right i:hover {
-  color: var(--primary-color); /* Cambio de color en hover */
+  color: var(--primary-color);
 }
 .user-avatar {
   width: 40px;

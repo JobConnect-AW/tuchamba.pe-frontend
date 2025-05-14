@@ -44,6 +44,8 @@ import ConfirmationService from "primevue/confirmationservice";
 import DialogService from "primevue/dialogservice";
 import ToastService from "primevue/toastservice";
 import Splitter from "primevue/splitter";
+import InputGroup from 'primevue/inputgroup';
+import TreeSelect from 'primevue/treeselect';
 
 import SelectButton from "primevue/selectbutton";
 
@@ -84,6 +86,8 @@ app.use(PrimeVue, { theme:{}})
   .component('pv-textarea', Textarea)
   .component('pv-toolbar', Toolbar)
   .component('pv-toast', Toast)
-  .component('pv-splitter', Splitter);
+  .component('pv-splitter', Splitter)
+  .component('InputGroup', InputGroup)
+  .component('TreeSelect', TreeSelect);
 
 app.mount('#app');
