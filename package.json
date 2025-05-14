@@ -15,6 +15,7 @@
   "dependencies": {
     "@primeuix/themes": "^1.1.1",
     "chart.js": "^4.4.9",
+    "json-server": "0.17.4",
     "pinia": "^3.0.1",
     "primevue": "^4.3.4",
     "vue": "^3.5.13",
