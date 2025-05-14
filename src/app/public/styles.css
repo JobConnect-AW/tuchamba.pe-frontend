@@ -9,7 +9,7 @@
 /* Estilo base para el cuerpo de la aplicación */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f7fa;  /* Fondo claro */
+  background-color: #EAEEF1;  /* Fondo claro */
   color: #333;  /* Color de texto por defecto */
   margin: 0;
   padding: 0;
@@ -25,116 +25,71 @@ body {
   top: 0;
   left: 0;
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 18px; /* Aumentamos el tamaño de la fuente */
+  font-weight: bold;
+}
+
+.user-role {
+  font-size: 14px; /* Aumentamos un poco la fuente */
+  color: #ccc;
 }
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 .sidebar li {
-  padding: 15px;
+  padding: 20px 15px;  /* Ajustamos el espaciado para mayor separación */
   cursor: pointer;
   display: flex;
-  align-items: center;
+  flex-direction: column;  /* Los elementos (íconos y texto) se apilan verticalmente */
+  align-items: center;     /* Centrar el contenido horizontalmente */
+  justify-content: center; /* Centrar el contenido verticalmente */
   color: var(--white-color);
+  font-size: 16px; /* Ajustamos el tamaño de la fuente */
+  font-weight: 500;  /* Aumentamos el peso de la fuente */
+  transition: background-color 0.3s ease;
 }
 
 .sidebar li:hover {
   background-color: var(--sidebar-hover-color); /* Hover en el sidebar */
+  border-radius: 5px; /* Añadimos bordes redondeados para un mejor efecto visual */
 }
 
 .sidebar i {
-  margin-right: 10px;
+  font-size: 24px;  /* Aumentamos el tamaño de los íconos */
+  margin-bottom: 5px; /* Menor espaciado entre el ícono y el texto */
 }
 
-/* Sidebar Links */
 .sidebar a {
   color: var(--white-color);
   text-decoration: none;
   font-weight: bold;
+
+  /* Alineación específica para 'Inicio' y 'Ofertas' */
+  .sidebar li.inicio, .sidebar li.ofertas {
+    align-items: center;   /* Centrado horizontal */
+    padding-left: 0; /* Sin padding extra para estos dos elementos */
+  }
 }
 
-/* Botón y Elementos destacados */
-button,
-.pv-button {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover,
-.pv-button:hover {
-  background-color: var(--hover-color);  /* Color de hover para botones */
-}
-
-/* Cards */
-.pv-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.pv-card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
-}
-
-/* Input y Select */
-.pv-input-text,
-.pv-input-number,
-.pv-select {
-  border-radius: 5px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.pv-input-text:focus,
-.pv-input-number:focus,
-.pv-select:focus {
-  border-color: var(--primary-color);  /* Color de borde cuando el campo está enfocado */
-}
-
-/* Tabla de Datos */
-.pv-data-table .p-datatable {
-  border-radius: 10px;
-}
-
-/* Modales y diálogos */
-.pv-dialog {
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.pv-dialog .p-dialog-header {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
-.pv-dialog .p-dialog-content {
-  color: #333;
-}
-
-/* Toast (Notificaciones) */
-.pv-toast {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.pv-toast .p-toast-message {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
-/* Divider (Splitter) */
-.pv-splitter {
-  background-color: #ccc;
-}

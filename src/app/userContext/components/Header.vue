@@ -38,8 +38,9 @@ export default defineComponent({
 <style scoped>
 .header {
   padding: 20px;
-  background-color: #ecf0f1;
-  margin-left: 250px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  margin-left: 30px;
 }
 
 .header h1 {
