@@ -3,11 +3,12 @@ import { ref, computed, onMounted, provide } from 'vue'
 import { useRoute } from 'vue-router'
 import { GetOfferByUidUseCase } from '../application/use-cases/get-offer-by-uid.usecase'
 import ApiOfferRepository from '../infrastructure/repositories/api-offer.repository'
+import { HttpService } from '@/app/shared/infrastructure/services/http.service'
 
 const route = useRoute()
 const offer = ref(null)
 provide('offer', offer)
-const apiOfferRepository = new ApiOfferRepository()
+const apiOfferRepository = new ApiOfferRepository(new HttpService());
 
 const isNewOfferPath = computed(() => route.path === '/offers/offer/new')
 
