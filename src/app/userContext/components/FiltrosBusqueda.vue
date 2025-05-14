@@ -1,10 +1,32 @@
 <template>
   <div class="filters-container">
-    <h2 class="filters-title">Filtros de Búsqueda</h2>
+    <div class="filters-header">
+      <h2 class="filters-title">Filtros de Búsqueda</h2>
+    </div>
+
+    <!-- Barra de Búsqueda -->
+    <div class="filter-item">
+      <label for="search">Búsqueda</label>
+      <InputGroup>
+        <InputText
+          id="search"
+          v-model="searchText"
+          placeholder="Buscar técnicos, servicios..."
+        />
+        <InputGroupAddon>
+          <Button
+            icon="pi pi-search"
+            severity="secondary"
+            variant="text"
+            @click="applyFilters"
+          />
+        </InputGroupAddon>
+      </InputGroup>
+    </div>
 
     <!-- Filtro de Categoría de Servicio -->
     <div class="filter-item">
-
+      <label for="category">Categoría del Servicio</label>
       <Select
         v-model="selectedCategory"
         :options="categories"
@@ -16,7 +38,7 @@
 
     <!-- Filtro de Ubicación/Distrito -->
     <div class="filter-item">
-
+      <label for="location">Ubicación / Distrito</label>
       <Select
         v-model="selectedLocation"
         :options="locations"
@@ -28,7 +50,7 @@
 
     <!-- Filtro de Disponibilidad -->
     <div class="filter-item">
-
+      <label for="availability">Disponibilidad</label>
       <Select
         v-model="selectedAvailability"
         :options="availabilityOptions"
@@ -40,7 +62,7 @@
 
     <!-- Filtro de Valoración Mínima -->
     <div class="filter-item">
-
+      <label for="rating">Valoración Mínima</label>
       <Select
         v-model="selectedRating"
         :options="ratingOptions"
@@ -52,7 +74,7 @@
 
     <!-- Filtro de Años de Experiencia -->
     <div class="filter-item">
-
+      <label for="experience">Años de Experiencia</label>
       <Select
         v-model="selectedExperience"
         :options="experienceOptions"
@@ -64,7 +86,7 @@
 
     <!-- Filtro de Tipo de Certificación -->
     <div class="filter-item">
-
+      <label for="certification">Tipo de Certificación</label>
       <Select
         v-model="selectedCertification"
         :options="certificationOptions"
@@ -84,16 +106,21 @@
 
 <script>
 import { ref } from "vue";
+import InputGroup from "primevue/inputgroup";
+import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import Button from "primevue/button";
 
 export default {
   components: {
+    InputGroup,
+    InputText,
     Select,
-    Button
+    Button,
   },
   setup() {
     // Datos para los filtros
+    const searchText = ref("");
     const selectedCategory = ref(null);
     const selectedLocation = ref(null);
     const selectedAvailability = ref(null);
@@ -105,53 +132,55 @@ export default {
     const categories = [
       { label: "Electricista", value: "electricista" },
       { label: "Plomero", value: "plomero" },
-      { label: "Carpintero", value: "carpintero" }
+      { label: "Carpintero", value: "carpintero" },
     ];
 
     const locations = [
       { label: "Lima", value: "lima" },
       { label: "Cusco", value: "cusco" },
-      { label: "Arequipa", value: "arequipa" }
+      { label: "Arequipa", value: "arequipa" },
     ];
 
     const availabilityOptions = [
       { label: "Disponible", value: "disponible" },
-      { label: "No disponible", value: "no_disponible" }
+      { label: "No disponible", value: "no_disponible" },
     ];
 
     const ratingOptions = [
       { label: "4 estrellas y más", value: "4+" },
       { label: "3 estrellas y más", value: "3+" },
-      { label: "2 estrellas y más", value: "2+" }
+      { label: "2 estrellas y más", value: "2+" },
     ];
 
     const experienceOptions = [
       { label: "10+ años", value: "10+" },
       { label: "6-10 años", value: "6-10" },
       { label: "3-5 años", value: "3-5" },
-      { label: "0-2 años", value: "0-2" }
+      { label: "0-2 años", value: "0-2" },
     ];
 
     const certificationOptions = [
       { label: "Certificación A", value: "cert_a" },
       { label: "Certificación B", value: "cert_b" },
-      { label: "Certificación C", value: "cert_c" }
+      { label: "Certificación C", value: "cert_c" },
     ];
 
     // Funciones para manejar los filtros
     const applyFilters = () => {
       console.log("Aplicando filtros:");
       console.log({
+        searchText: searchText.value,
         selectedCategory: selectedCategory.value,
         selectedLocation: selectedLocation.value,
         selectedAvailability: selectedAvailability.value,
         selectedRating: selectedRating.value,
         selectedExperience: selectedExperience.value,
-        selectedCertification: selectedCertification.value
+        selectedCertification: selectedCertification.value,
       });
     };
 
     const clearFilters = () => {
+      searchText.value = "";
       selectedCategory.value = null;
       selectedLocation.value = null;
       selectedAvailability.value = null;
@@ -161,6 +190,7 @@ export default {
     };
 
     return {
+      searchText,
       selectedCategory,
       selectedLocation,
       selectedAvailability,
@@ -174,28 +204,45 @@ export default {
       experienceOptions,
       certificationOptions,
       applyFilters,
-      clearFilters
+      clearFilters,
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
 .filters-container {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
   margin-left: 20px;
+  margin-top: 15px;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .filters-title {
   font-size: 20px;
   font-weight: 600;
   color: var(--primary-color);
-  margin-bottom: 20px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-wrapper .pi-search {
+  color: var(--primary-color);
 }
 
 .filter-item {
@@ -212,6 +259,7 @@ export default {
 .filter-actions {
   display: flex;
   gap: 10px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -220,9 +268,9 @@ export default {
   border-color: #e0e0e0;
 }
 
-/* Asegurar que todos los Select ocupen el mismo tamaño */
+/* Ajustamos para que los Select tengan el mismo tamaño */
 .p-select {
-  width: 100% !important;  /* Establecemos el ancho al 100% para todos los selects */
+  width: 100% !important; /* Aseguramos que todos los Select tengan el mismo tamaño */
 }
 
 input,
@@ -265,5 +313,4 @@ select {
 .p-inputgroup i {
   color: #555;
 }
-
 </style>

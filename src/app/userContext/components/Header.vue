@@ -45,7 +45,7 @@ export default defineComponent({
 
 <style scoped>
 .header {
-  padding: 10px 20px;
+  padding: 4px 15px;
   background-color: #fff;
   display: flex;
   justify-content: space-between;

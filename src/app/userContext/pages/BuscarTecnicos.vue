@@ -1,9 +1,6 @@
 <template>
   <div class="buscar-tecnicos">
-    <h2>Buscar Técnicos</h2>
-
     <FiltrosBusqueda />
-
   </div>
 </template>
 
