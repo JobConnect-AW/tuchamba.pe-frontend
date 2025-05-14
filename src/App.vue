@@ -2,7 +2,7 @@
   <div class="app-layout flex h-screen">
     <Sidebar />
     <div class="main-content flex-1 flex flex-col overflow-auto">
-      <HeaderBar />
+      <HeaderBar title="" />
       <router-view />
     </div>
   </div>

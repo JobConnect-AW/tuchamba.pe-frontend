@@ -7,12 +7,14 @@ import router from './router'
 import Aura from '@primeuix/themes/aura';
 import '@/assets/global.css'
 
-import PrimeVue      from 'primevue/config'
-import Button        from 'primevue/button'
-import Dropdown      from 'primevue/dropdown'
-import Checkbox      from 'primevue/checkbox'
-import Toolbar       from 'primevue/toolbar'
-import Card          from 'primevue/card'
+import PrimeVue from 'primevue/config'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
+import Dropdown from 'primevue/dropdown'
+import InputText from 'primevue/inputtext'
+import Checkbox from 'primevue/checkbox'
+import Button from 'primevue/button'
+import PanelMenu from 'primevue/panelmenu'
 
 import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
@@ -31,17 +33,22 @@ app.component('Chart', Chart);
 app.component('Dropdown', Dropdown);
 app.component('Checkbox', Checkbox);
 app.component('Button', Button);
+app.component('Toolbar', Toolbar);
+app.component('Card', Card);
+app.component('TabView', TabView);
+app.component('TabPanel', TabPanel);
+app.component('InputText', InputText);
+app.component('PanelMenu', PanelMenu);
+
 app.use(createPinia())
 app.use(PrimeVue, {
-   theme: {
-        preset: Aura
-    }
+  theme: {
+    preset: Aura
+  }
 });
 app.use(router)
+app.use(PrimeVue)
 
-app.component('PCheckbox',   Checkbox)
-app.component('PToolbar',    Toolbar)
-app.component('PCard',       Card)
 
 app.mount('#app')
 
