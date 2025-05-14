@@ -11,7 +11,7 @@
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
     "format": "prettier --write src/",
-    "server": "json-server --watch server/db.json --port 5000"
+    "server": "json-server server/db.json --port 5000"
   },
   "dependencies": {
     "@primevue/themes": "^4.3.4",

@@ -23,6 +23,54 @@
       "experiencia": "7 años",
       "calificacion": 4.5,
       "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 4,
+      "nombre": "Carlos Martínez",
+      "categoria": "Electricista",
+      "experiencia": "15 años",
+      "calificacion": 4.9,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 5,
+      "nombre": "Ana Pérez",
+      "categoria": "Fontanera",
+      "experiencia": "12 años",
+      "calificacion": 4.6,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 6,
+      "nombre": "Luis Rodríguez",
+      "categoria": "Carpintero",
+      "experiencia": "8 años",
+      "calificacion": 4.4,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 7,
+      "nombre": "María López",
+      "categoria": "Plomero",
+      "experiencia": "4 años",
+      "calificacion": 4.2,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 8,
+      "nombre": "Jorge Castillo",
+      "categoria": "Electricista",
+      "experiencia": "6 años",
+      "calificacion": 4.3,
+      "imagen": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 9,
+      "nombre": "Sofía Herrera",
+      "categoria": "Carpintero",
+      "experiencia": "5 años",
+      "calificacion": 4.1,
+      "imagen": "https://via.placeholder.com/150"
     }
   ]
 }

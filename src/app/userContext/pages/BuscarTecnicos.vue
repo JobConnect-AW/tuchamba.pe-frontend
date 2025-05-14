@@ -1,29 +1,59 @@
 <template>
   <div class="buscar-tecnicos">
-    <FiltrosBusqueda />
+    <h2>Buscar Técnicos</h2>
+
+    <div class="filters-cards-container">
+      <!-- Filtros de búsqueda a la izquierda -->
+      <div class="filters">
+        <FiltrosBusqueda />
+      </div>
+
+      <!-- Cards de técnicos a la derecha -->
+      <div class="cards">
+        <TecnicosCard />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// Importamos el componente de filtros de búsqueda
-import FiltrosBusqueda from '../components/FiltrosBusqueda.vue';
+import FiltrosBusqueda from "../components/FiltrosBusqueda.vue";
+import TecnicosCard from "../components/TecnicosCard.vue";
 
 export default {
   components: {
-    FiltrosBusqueda,  // Registramos el componente aquí
-  },
-  data() {
-    return {
-      técnicos: [
-        { id: 1, nombre: 'Juan González', calificacion: 4.7, numCalificaciones: 200, imagen: 'imagen1.jpg' },
-        { id: 2, nombre: 'Teodoro Casanova', calificacion: 4.3, numCalificaciones: 100, imagen: 'imagen2.jpg' },
-        { id: 3, nombre: 'Gracia Espinoza', calificacion: 4.1, numCalificaciones: 50, imagen: 'imagen3.jpg' },
-      ],
-    };
+    FiltrosBusqueda,
+    TecnicosCard,
   },
 };
 </script>
 
 <style scoped>
+.buscar-tecnicos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
 
+.filters-cards-container {
+  display: flex;
+  justify-content: space-between; /* Divide el espacio entre filtro y cards */
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+}
+
+.filters {
+  flex: 1;
+  max-width: 300px; /* Filtro más estrecho */
+  margin-right: 20px; /* Espacio entre el filtro y las cards */
+}
+
+.cards {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 </style>
