@@ -12,3 +12,7 @@
 import Sidebar from '@/app/shared/Sidebar.vue'
 import HeaderBar from '@/app/shared/HeaderBar.vue'
 </script>
+
+<style>
+@import 'tailwindcss';
+</style>
