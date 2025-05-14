@@ -16,7 +16,7 @@ import Aura from '@primevue/themes/aura';
 // Tema claro de PrimeVue (cambiamos a Lara o Saga Blue)
 // PrimeVue Icons
 import 'primeicons/primeicons.css';
-
+import Noir from '/presets/Noir.js';
 // Componentes de PrimeVue
 import Toast from "primevue/toast";
 import Toolbar from "primevue/toolbar";
@@ -39,13 +39,14 @@ import Row from "primevue/row";
 import Tag from "primevue/tag";
 import Textarea from "primevue/textarea";
 import Drawer from "primevue/drawer";
-import Select from "primevue/select";
+
 import ConfirmationService from "primevue/confirmationservice";
 import DialogService from "primevue/dialogservice";
 import ToastService from "primevue/toastservice";
 import Splitter from "primevue/splitter";
 import InputGroup from 'primevue/inputgroup';
 import TreeSelect from 'primevue/treeselect';
+import Select from "primevue/select";
 
 import SelectButton from "primevue/selectbutton";
 
@@ -59,7 +60,13 @@ app.use(router);
 const pinia = createPinia();
 app.use(pinia);
 
-app.use(PrimeVue, { theme:{}})
+app.use(PrimeVue, { theme:{
+          preset:Noir,
+          options: {
+            prefix: 'p',
+            darkModeSelector: '.p-dark',
+            cssLayer:false,
+          }}, ripple:true})
   .use(ConfirmationService)
   .use(DialogService)
   .use(ToastService)
@@ -70,7 +77,6 @@ app.use(PrimeVue, { theme:{}})
   .component('pv-checkbox', Checkbox)
   .component('pv-data-table', DataTable)
   .component('pv-dialog', Dialog)
-  .component('pv-select', Select)
   .component('pv-select-button', SelectButton)
   .component('pv-file-upload', FileUpload)
   .component('pv-float-label', FloatLabel)
@@ -88,6 +94,7 @@ app.use(PrimeVue, { theme:{}})
   .component('pv-toast', Toast)
   .component('pv-splitter', Splitter)
   .component('InputGroup', InputGroup)
-  .component('TreeSelect', TreeSelect);
+  .component('TreeSelect', TreeSelect)
+  .component('Select', Select);
 
 app.mount('#app');
