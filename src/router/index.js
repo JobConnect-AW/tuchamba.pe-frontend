@@ -6,8 +6,9 @@ import CustomerDashboard from '@/app/dashboard/pages/CustomerDashboard.vue'
 import Configuracion from '@/app/trabajador/views/Configuracion.vue';
 import MyProfileTrabajador from '@/app/trabajador/views/MyProfile-Trabajador.vue';
 import Planes from '@/app/trabajador/views/Planes.vue';
+import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -29,6 +30,12 @@ export default createRouter({
       path: '/trabajador/configuracion/planes',
       name: 'Planes',
       component: Planes
+    },
+    {
+      path: '/search-offers',
+      component: SearchOffers
     }
   ]
 });
+
+export default router
