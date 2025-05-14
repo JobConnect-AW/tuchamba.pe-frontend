@@ -1,35 +1,15 @@
-# .
+<h1 align="center">Tu chamba.pe - Frontend Project</h1>
 
-This template should help get you started developing with Vue 3 in Vite.
+Tu chamba.pe es una aplicación web cuyo principal objetivo es permitir la conexión eficaz y segura entre profesionales independientes con clientes potenciales.
 
-## Recommended IDE Setup
+## Tecnologías Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue.js 3** - Framework progresivo de JavaScript para construir interfaces de usuario
+- **Vue Router 4** - Enrutador oficial para aplicaciones Vue que permite la navegación entre vistas
+- **Pinia** - Biblioteca de gestión de estado para Vue, reemplazando Vuex en aplicaciones Vue 3
+- **Vite** - Herramienta de compilación rápida que ofrece un entorno de desarrollo con Hot Module Replacement
+- **ESLint** - Analizador de código estático para identificar y corregir problemas en el código JavaScript
+- **Prettier** - Formateador de código para mantener un estilo consistente
+- **Oxlint** - Herramienta de linting rápida para JavaScript
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-bun install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-bun dev
-```
-
-### Compile and Minify for Production
-
-```sh
-bun run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-bun lint
-```
+La arquitectura del proyecto sigue una estructura modular con rutas gestionadas a través de Vue Router y un sistema de componentes escalable.
