@@ -29,7 +29,7 @@
       </div>
       <div class="form-group">
         <label>Certificaciones</label>
-        <PButton label="Choose File" icon="pi pi-upload" class="p-button-outlined"/>
+        <pv-button label="Choose File" icon="pi pi-upload" class="p-button-outlined"/>
       </div>
       <div class="form-group">
         <PCheckbox v-model="localAbout.notify"/><label>Acepto recibir notificaciones...</label>
@@ -38,8 +38,8 @@
         <PCheckbox v-model="localAbout.consent"/><label>Autorizo el tratamiento de datos… *</label>
       </div>
       <div class="actions">
-        <PButton label="Publicar" class="p-button-primary" @click="onPublish"/>
-        <PButton label="Guardar cambios" class="p-button-warning" @click="onSave"/>
+        <pv-button label="Publicar" class="p-button-primary" @click="onPublish"/>
+        <pv-button label="Guardar cambios" class="p-button-warning" @click="onSave"/>
       </div>
     </div>
   </div>
@@ -61,13 +61,6 @@ export default {
     }
   },
   emits: ['update:about','publish'],
-  components: {
-    PTextarea: Textarea,
-    PDropdown: Dropdown,
-    PInputText: InputText,
-    PCheckbox: Checkbox,
-    PButton: Button
-  },
   data() {
     return {
       localAbout: { ...this.about },

@@ -25,7 +25,7 @@
 
         <!-- Footer con el botón -->
         <template #footer>
-          <Button
+          <pv-button
             label="Ver Perfil"
             icon="pi pi-user"
             class="p-button-primary p-mt-2"

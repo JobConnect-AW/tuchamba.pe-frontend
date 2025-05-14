@@ -5,7 +5,7 @@
       <span class="value">{{ f.value }}</span>
     </div>
     <div class="save-btn">
-      <Button label="Guardar cambios" icon="pi pi-save" class="p-button-warning"/>
+      <pv-button label="Guardar cambios" icon="pi pi-save" class="p-button-warning"/>
     </div>
   </div>
 </template>

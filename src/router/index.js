@@ -6,8 +6,10 @@ import Configuracion from '@/app/trabajador/views/Configuracion.vue';
 import MyProfileTrabajador from '@/app/trabajador/views/MyProfile-Trabajador.vue';
 import Planes from '@/app/trabajador/views/Planes.vue';
 import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
-import Home from '@/app/userContext/pages/Home.vue';
 import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
+import Home from '@/app/userContext/pages/Home.vue';
+import BuscarTecnicos from '@/app/userContext/pages/BuscarTecnicos.vue';
+import Ofertas from '@/app/userContext/pages/Ofertas.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,8 +17,8 @@ const router = createRouter({
     {
       path: '/dashboard',
       children: [
-        { path: '/comparar', component: CompareProfiles },
-        { path: '/', redirect: '/comparar' },
+        { path: 'comparar', component: CompareProfiles },
+        { path: '', redirect: '/comparar' },
         { path: 'worker', component: WorkerDashboard },
         { path: 'customer', component: CustomerDashboard }
       ]

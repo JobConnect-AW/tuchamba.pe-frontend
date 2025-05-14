@@ -14,7 +14,7 @@
           placeholder="Buscar técnicos, servicios..."
         />
         <InputGroupAddon>
-          <Button
+          <pv-button
             icon="pi pi-search"
             severity="secondary"
             variant="text"
@@ -98,8 +98,8 @@
 
     <!-- Botones de Aplicar y Borrar -->
     <div class="filter-actions">
-      <Button label="Aplicar" icon="pi pi-check" @click="applyFilters" />
-      <Button label="Borrar" icon="pi pi-times" @click="clearFilters" class="p-button-secondary" />
+      <pv-button label="Aplicar" icon="pi pi-check" @click="applyFilters" />
+      <pv-button label="Borrar" icon="pi pi-times" @click="clearFilters" class="p-button-secondary" />
     </div>
   </div>
 </template>

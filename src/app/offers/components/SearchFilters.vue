@@ -52,8 +52,8 @@
         </div>
 
         <div class="filter-actions">
-            <Button label="Aplicar" class="apply-button" />
-            <Button label="Borrar" severity="secondary" text />
+            <pv-button label="Aplicar" class="apply-button" />
+            <pv-button label="Borrar" severity="secondary" text />
         </div>
     </div>
 </template>

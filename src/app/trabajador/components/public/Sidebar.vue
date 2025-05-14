@@ -5,7 +5,7 @@
       <div class="name">James Cooper</div>
       <p class="role">Electricista</p>
       <!-- Navegar a perfil al hacer clic -->
-      <Button
+      <pv-button
         label="Personalizar Perfil"
         class="p-button-sm p-button-outlined"
         @click="goToProfile"

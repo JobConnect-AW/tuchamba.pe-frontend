@@ -5,8 +5,8 @@
       <!-- Header con título y acciones -->
       <HeaderBar title="Mi Perfil">
         <template #actions>
-          <Button icon="pi pi-envelope" class="p-button-text" />
-          <Button icon="pi pi-bell" class="p-button-text" />
+          <pv-button icon="pi pi-envelope" class="p-button-text" />
+          <pv-button icon="pi pi-bell" class="p-button-text" />
         </template>
       </HeaderBar>
 

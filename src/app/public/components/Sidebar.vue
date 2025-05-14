@@ -3,7 +3,7 @@
     <div class="profile">
       <img :src="userImg" class="profile-img" alt="Usuario" />
       <div class="name">James Cooper</div>
-      <PButton label="Personalizar Perfil" class="p-button-sm p-button-outlined" />
+      <pv-button label="Personalizar Perfil" class="p-button-sm p-button-outlined" />
     </div>
 
     <ul class="menu">

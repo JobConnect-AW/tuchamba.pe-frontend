@@ -51,22 +51,24 @@ import SelectButton from "primevue/selectbutton";
 
 import { createPinia } from "pinia";
 import App from './App.vue';
+import Chart from 'primevue/chart';
 
 const app = createApp(App);
+const pinia = createPinia();
 
-
+app.use(pinia);
 app.use(router);
 
-const pinia = createPinia();
-app.use(pinia);
-
-app.use(PrimeVue, { theme:{
-          preset:Noir,
-          options: {
-            prefix: 'p',
-            darkModeSelector: '.p-dark',
-            cssLayer:false,
-          }}, ripple:true})
+app.use(PrimeVue, {
+  theme: {
+    preset: Noir,
+    options: {
+      prefix: 'p',
+      darkModeSelector: '.p-dark',
+      cssLayer: false,
+    }
+  }, ripple: true
+})
   .use(ConfirmationService)
   .use(DialogService)
   .use(ToastService)
@@ -95,6 +97,7 @@ app.use(PrimeVue, { theme:{
   .component('pv-splitter', Splitter)
   .component('InputGroup', InputGroup)
   .component('TreeSelect', TreeSelect)
+  .component('Chart', Chart)
   .component('Select', Select);
 
 app.mount('#app');
