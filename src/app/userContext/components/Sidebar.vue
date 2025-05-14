@@ -2,7 +2,7 @@
   <div class="sidebar">
     <div class="user-info">
       <img
-        src="https://www.gravatar.com/avatar/00000000000000000000000000000000"
+        src="../../assets/User1.png"
         alt="User Avatar"
         class="user-avatar"
       />
