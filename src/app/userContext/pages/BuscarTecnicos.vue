@@ -1,59 +1,34 @@
 <template>
-  <div class="buscar-tecnicos">
-    <h2>Buscar Técnicos</h2>
+  <div class="h-full flex flex-col">
 
-    <div class="filters-cards-container">
-      <!-- Filtros de búsqueda a la izquierda -->
-      <div class="filters">
-        <FiltrosBusqueda />
-      </div>
+    <!-- Header exclusivo de esta página -->
+    <HeaderBarBuscar />
 
-      <!-- Cards de técnicos a la derecha -->
-      <div class="cards">
-        <TecnicosCard />
+    <!-- Zona de filtros + cards -->
+    <section class="flex-1 overflow-auto p-6">
+      <div class="filters-cards-container">
+        <div class="filters"><FiltrosBusqueda /></div>
+        <div class="cards"><TecnicosCard /></div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
-<script>
-import FiltrosBusqueda from "../components/FiltrosBusqueda.vue";
-import TecnicosCard from "../components/TecnicosCard.vue";
-
-export default {
-  components: {
-    FiltrosBusqueda,
-    TecnicosCard,
-  },
-};
+<script setup>
+import HeaderBarBuscar from '@/app/userContext/components/HeaderBarBuscar.vue'
+import FiltrosBusqueda  from '@/app/userContext/components/FiltrosBusqueda.vue'
+import TecnicosCard     from '@/app/userContext/components/TecnicosCard.vue'
 </script>
 
 <style scoped>
-.buscar-tecnicos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+.filters-cards-container{
+  display:flex; justify-content:space-between;
+  max-width:1200px; margin-inline:auto;
 }
-
-.filters-cards-container {
-  display: flex;
-  justify-content: space-between; /* Divide el espacio entre filtro y cards */
-  width: 100%;
-  max-width: 1200px; /* Limitar el ancho máximo */
-}
-
-.filters {
-  flex: 1;
-  max-width: 300px; /* Filtro más estrecho */
-  margin-right: 20px; /* Espacio entre el filtro y las cards */
-}
-
-.cards {
-  flex: 3;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.filters{flex:1; max-width:300px; margin-right:20px;}
+.cards{flex:3; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+@media (max-width:768px){
+  .filters-cards-container{flex-direction:column;align-items:center}
+  .filters{margin:0 0 20px; max-width:100%}
 }
 </style>
