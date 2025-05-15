@@ -23,7 +23,7 @@ const props = defineProps({
 <template>
     <div class="suggested-container">
         <div class="total-number">{{ props.total }}</div>
-        
+
         <div class="suggestions-list">
             <div class="suggestion-item">
                 <span class="suggestion-label">{{ props.suggested.label }}</span>
@@ -43,9 +43,9 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 1rem;
     height: 100%;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .total-number {
@@ -58,7 +58,7 @@ const props = defineProps({
 .suggestions-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
 }
 

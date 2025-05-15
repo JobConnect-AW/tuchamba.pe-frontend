@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CompareProfiles from '@/app/public/CompareProfiles.vue'
-import WorkerDashboard from '@/app/dashboard/pages/WorkerDashboard.vue'
-import CustomerDashboard from '@/app/dashboard/pages/CustomerDashboard.vue'
-import Configuracion from '@/app/trabajador/views/Configuracion.vue';
-import MyProfileTrabajador from '@/app/trabajador/views/MyProfile-Trabajador.vue';
-import Planes from '@/app/trabajador/views/Planes.vue';
+import WorkerDashboard from '@/app/worker/views/WorkerDashboard.vue'
+import CustomerDashboard from '@/app/customer/pages/CustomerDashboard.vue'
+import Configuracion from '@/app/worker/views/Configuracion.vue';
+import MyProfileTrabajador from '@/app/worker/views/MyProfile-Trabajador.vue';
+import Planes from '@/app/worker/views/Planes.vue';
 import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
 import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
 import Home from '@/app/userContext/pages/Home.vue';

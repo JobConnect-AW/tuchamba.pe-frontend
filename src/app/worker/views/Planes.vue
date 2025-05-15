@@ -68,8 +68,8 @@
 
 <script setup>
 import { reactive } from 'vue';
-import HeaderBarPlan from '@/app/trabajador/components/public/HeaderBarPlan.vue';
-import PlanCard from '@/app/trabajador/components/PlanCard.vue';
+import HeaderBarPlan from '@/app/worker/components/public/HeaderBarPlan.vue';
+import PlanCard from '@/app/worker/components/PlanCard.vue';
 
 const cards = reactive({
   standard: true,

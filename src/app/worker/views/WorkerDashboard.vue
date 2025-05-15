@@ -1,9 +1,9 @@
 <script setup>
-import SearchersChart from '../components/SearchersChart.vue';
-import ProfileStatus from '../components/ProfileStatus.vue';
-import Suggested from '../components/Suggested.vue';
-import MeterContacts from '../components/MeterContacts.vue';
-import PieChart from '../components/PieChart.vue';
+import SearchersChart from '@/app/shared/components/SearchersChart.vue';
+import ProfileStatus from '@/app/shared/components/ProfileStatus.vue';
+import Suggested from '@/app/shared/components/Suggested.vue';
+import MeterContacts from '@/app/shared/components/MeterContacts.vue';
+import PieChart from '@/app/shared/components/PieChart.vue';
 import Panel from 'primevue/panel';
 
 const last_week = [65, 59, 80, 81, 56, 55, 40];
@@ -49,5 +49,5 @@ const last_week = [65, 59, 80, 81, 56, 55, 40];
 </template>
 
 <style scoped>
-@import url('../styles/dashboard.css');
+@import url('@/app/shared/styles/dashboard.css');
 </style>
