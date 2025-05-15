@@ -13,9 +13,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primeuix/themes": "^1.1.1",
+    "@primevue/forms": "^4.3.4",
     "pinia": "^3.0.1",
+    "primevue": "^4.3.4",
+    "sod": "^0.1.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
