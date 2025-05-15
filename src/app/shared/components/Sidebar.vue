@@ -4,23 +4,23 @@
       <img :src="userImg" alt="User Avatar" class="user-avatar" />
       <h2 class="user-name text-white !text-base">James Cooper</h2>
       <RouterLink
-        to="/configuracion"
+        :to="{ name: 'configuracion' }"
         class="user-role !text-gray-100 !text-xs hover:!bg-transparent"
       >
         Personalizar Perfil</RouterLink
       >
     </div>
 
-    <ul class="flex flex-1 flex-col justify-center gap-2">
-      <li
-        v-for="item in navItems"
-        :key="item.name"
-        class="flex flex-col gap-2 items-center justify-center text-white cursor-pointer hover:bg-[#1c4790] rounded-lg py-2 transition-all duration-200"
-        :class="{ 'bg-[#1c4790]': $route.name === item.route }"
-        @click="goToRoute(item.route)"
-      >
-        <i :class="item.icon" class="!text-base"></i>
-        <span class="text-center text-xs">{{ item.label }}</span>
+    <ul class="flex flex-1 flex-col justify-center 2xl:justify-start gap-2">
+      <li v-for="item in navItems" :key="item.name">
+        <RouterLink
+          :to="{ name: item.route }"
+          activeClass="bg-[#1c4790]"
+          class="flex flex-col gap-2 items-center justify-center !text-white cursor-pointer hover:!bg-[#1c4790] rounded-lg !py-2 transition-all duration-200"
+        >
+          <i :class="item.icon" class="!text-base"></i>
+          <span class="text-center text-xs">{{ item.label }}</span>
+        </RouterLink>
       </li>
     </ul>
   </nav>
@@ -51,7 +51,4 @@ const navItems = [
   { name: 'configuracion', route: 'configuracion', icon: 'pi pi-cog', label: 'Configuración' },
 ]
 
-const goToRoute = (routeName) => {
-  router.push({ name: routeName })
-}
 </script>
