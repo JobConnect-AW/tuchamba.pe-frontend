@@ -1,8 +1,8 @@
 <template>
   <div class="app-layout flex h-screen">
     <Sidebar />
-    <div class="main-content flex-1 flex flex-col overflow-auto">
-      <HeaderBar title="" />
+    <div class="pl-[240px] flex-1 flex flex-col overflow-auto">
+      <!-- <HeaderBar title="" /> -->
       <router-view />
     </div>
   </div>

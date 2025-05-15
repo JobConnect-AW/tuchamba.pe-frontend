@@ -15,7 +15,6 @@ import 'primeflex/primeflex.css';
 // Tema claro de PrimeVue (cambiamos a Lara o Saga Blue)
 // PrimeVue Icons
 import 'primeicons/primeicons.css';
-import Noir from '/presets/Noir.js';
 // Componentes de PrimeVue
 import Toast from "primevue/toast";
 import Toolbar from "primevue/toolbar";

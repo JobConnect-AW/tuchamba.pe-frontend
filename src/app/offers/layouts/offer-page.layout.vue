@@ -8,7 +8,7 @@ import { HttpService } from '@/app/shared/infrastructure/services/http.service'
 const route = useRoute()
 const offer = ref(null)
 provide('offer', offer)
-const apiOfferRepository = new ApiOfferRepository(new HttpService());
+const apiOfferRepository = new ApiOfferRepository(new HttpService())
 
 const isNewOfferPath = computed(() => route.path === '/offers/offer/new')
 
