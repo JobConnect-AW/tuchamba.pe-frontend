@@ -1,7 +1,7 @@
 <template>
   <div class="app-layout flex h-screen">
     <Sidebar />
-    <div class="pl-[240px] flex-1 flex flex-col overflow-auto">
+    <div class="flex-1 flex flex-col overflow-auto">
       <!-- <HeaderBar title="" /> -->
       <router-view />
     </div>
@@ -13,6 +13,8 @@ import Sidebar from '@/app/shared/components/Sidebar.vue'
 import HeaderBar from '@/app/shared/components/HeaderBar.vue'
 </script>
 
-<style>
+<style global>
 @import 'tailwindcss';
+@import "tailwindcss-primeui";
+
 </style>

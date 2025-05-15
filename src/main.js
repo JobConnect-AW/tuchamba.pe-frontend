@@ -9,9 +9,6 @@ import router from "./router/index.js";
 // PrimeVue
 import PrimeVue from 'primevue/config';
 
-// PrimeVue CSS
-import 'primeflex/primeflex.css';
-
 // Tema claro de PrimeVue (cambiamos a Lara o Saga Blue)
 // PrimeVue Icons
 import 'primeicons/primeicons.css';

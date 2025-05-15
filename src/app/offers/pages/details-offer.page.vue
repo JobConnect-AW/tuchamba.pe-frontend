@@ -64,7 +64,7 @@ const technicians = ref([
 </script>
 
 <template>
-  <div class="bg-white rounded-lg p-6 max-w-6xl mx-auto shadow-md">
+  <div class="bg-white p-6">
     <!-- Título y descripción -->
     <h2 class="text-xl font-bold mb-2">Se busca Técnico Electricista a Domicilio</h2>
     <div class="mb-4">
@@ -81,12 +81,12 @@ const technicians = ref([
     </div>
 
     <!-- Grid horizontal con scroll para técnicos -->
-    <div class="bg-blue-600 p-4 rounded overflow-y-auto flex">
-      <div class="flex gap-6 justify-center w-max">
+    <div class="bg-blue-600 p-4">
+      <div class="gap-6 grid grid-cols-[repeat(auto-fill,_minmax(theme(spacing.40),1fr))] overflow-y-auto">
         <div
           v-for="(tech, idx) in technicians"
           :key="idx"
-          class="bg-white rounded-lg p-4 min-w-48 flex-shrink-0 flex flex-col items-center text-center"
+          class="bg-white rounded-lg p-4 flex-shrink-0 flex flex-col items-center text-center"
         >
           <div class="relative mb-3">
             <img :src="tech.photo" alt="Profile" class="rounded-full w-20 h-20 object-cover" />
@@ -117,7 +117,7 @@ const technicians = ref([
           </div>
           <p class="text-sm text-blue-600 mb-2">{{ tech.profession }}</p>
           <p class="text-orange-400 font-bold mb-2">${{ tech.price }}</p>
-          <Button label="Book" class="bg-orange-400 text-white hover:bg-orange-500" />
+          <Button label="Book" class="bg-orange-400 border-orange-400 text-white hover:bg-orange-500" />
         </div>
       </div>
     </div>

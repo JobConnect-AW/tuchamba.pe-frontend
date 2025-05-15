@@ -146,6 +146,7 @@ function submitForm() {
       <!-- Checkboxes -->
       <div class="flex items-start gap-4 mt-2">
         <Checkbox
+          binary
           inputId="notificationsAccepted"
           v-model="form.notificationsAccepted"
           class="mr-2"
@@ -156,7 +157,7 @@ function submitForm() {
       </div>
 
       <div class="flex items-start gap-4">
-        <Checkbox inputId="personalDataConsent" v-model="form.personalDataConsent" class="mr-2" />
+        <Checkbox binary inputId="personalDataConsent" v-model="form.personalDataConsent" class="mr-2" />
         <label for="personalDataConsent" class="select-none">
           Autorizo el tratamiento de mis datos personales para finalidades informativas y
           comerciales, conforme al siguiente

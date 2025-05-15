@@ -33,8 +33,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="p-6 bg-white rounded-lg shadow-md max-w-5xl mx-auto">
-    <header class="mb-6">
+  <section class="p-6 bg-white rounded-lg">
+    <div class="mb-6">
       <div class="flex items-center justify-between">
         <Button
           class="px-4 py-2 rounded font-semibold"
@@ -68,9 +68,7 @@ onMounted(async () => {
           Finalizada
         </Button>
       </div>
-    </header>
-    <div>
-      <router-view />
     </div>
+    <router-view />
   </section>
 </template>
