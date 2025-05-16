@@ -62,7 +62,7 @@ const router = createRouter({
       name: 'customer',
       children: [
         {
-          path: '/ofertas',
+          path: 'ofertas',
           name: 'offers',
           children: [
             {
@@ -97,33 +97,16 @@ const router = createRouter({
       name: 'worker',
       children: [
         {
-          path: '/',
-          name: 'offers',
+          path: '/proposal',
+          name: 'proposal',
+          component: () => import('../app/proposals/layouts/proposal-page.layout.vue'),
           children: [
             {
               path: '',
-              name: 'offers-list',
-              component: () => import('../app/offers/pages/list-offers.page.vue'),
-            },
-            {
-              path: 'oferta',
-              name: 'offer',
-              component: () => import('../app/offers/layouts/offer-page.layout.vue'),
-              children: [
-                {
-                  path: 'crear',
-                  name: 'new-offer',
-                  component: () => import('../app/offers/pages/create-offer.page.vue'),
-                },
-                {
-                  path: ':uid',
-                  name: 'offer-detail',
-                  component: () => import('../app/offers/pages/details-offer.page.vue'),
-                },
-              ],
+              component: () => import('../app/offers/pages/offer-for-proposal.page.vue'),
             },
           ],
-          meta: { title: 'Ofertas' }
+          meta: { title: 'Propuesta' }
         },
       ]
     },

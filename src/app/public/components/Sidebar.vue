@@ -45,17 +45,17 @@ const router = useRouter()
 const userImg = userAvatar
 
 const navItems = [
-  { name: 'home', route: 'home', icon: 'pi pi-home', label: 'Inicio' },
+  { name: 'home', route: '/', icon: 'pi pi-home', label: 'Inicio' },
   {
     name: 'buscarTecnicos',
-    route: 'buscarTecnicos',
+    route: 'buscar-tecnicos',
     icon: 'pi pi-search',
     label: 'Buscar Técnicos',
   },
-  { name: 'offers-list', route: 'offers', icon: 'pi pi-file-check', label: 'Ofertas' },
+  { name: 'offers-list', route: 'trabajador/ofertas', icon: 'pi pi-file-check', label: 'Ofertas' },
   {
     name: 'compararPerfiles',
-    route: 'compararPerfiles',
+    route: 'comparar-perfiles',
     icon: 'pi pi-users',
     label: 'Comparar Perfiles',
   },
