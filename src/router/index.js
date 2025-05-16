@@ -15,10 +15,23 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/login',
+      name: 'Iniciar Sesión',
+      component: () => import('@/app/auth/pages/Login.vue'),
+    },
+    {
+      path: '/sign-up',
+      name: 'Registrarse',
+      component: () => import('@/app/auth/pages/SignUp.vue'),
+    },
+    {
+      path: '/password-recovery',
+      name: 'Recuperar Contraseña',
+      component: () => import('@/app/auth/pages/PasswordRecovery.vue'),
+    },
+    {
       path: '/dashboard',
       children: [
-        { path: 'comparar', component: CompareProfiles },
-        { path: '', redirect: '/comparar' },
         { path: 'worker', component: WorkerDashboard },
         { path: 'customer', component: CustomerDashboard }
       ]
@@ -44,9 +57,9 @@ const router = createRouter({
       path: '/search-offers',
       component: SearchOffers
     },
-    { path: '/', name: 'home', component: Home, meta: { title: 'Inicio' } },
+    { path: '/', name: 'home', component: CustomerDashboard, meta: { title: 'Inicio' } },
     { path: '/buscar-tecnicos', name: 'buscarTecnicos', component: BuscarTecnicos, meta: { title: 'Buscar Técnicos' } },
-    { path: '/comparar-perfiles', name: 'compararPerfiles', component: CompararPerfiles, meta: { title: 'Comparar Perfiles' } },
+    { path: '/comparar-perfiles', name: 'compararPerfiles', component: CompareProfiles, meta: { title: 'Comparar Perfiles' } },
     { path: '/configuracion', name: 'configuracion', component: Configuracion, meta: { title: 'Configuración' } },
     {
       path: '/cliente',
@@ -100,14 +113,13 @@ const router = createRouter({
           meta: { title: 'Propuesta' }
         },
       ]
-    },
-    { path: '/:pathMatch(.*)*', redirect: '/' },
+    }
   ]
 });
 
 
 router.beforeEach((to, from, next) => {
-  const baseTitle = 'Mi Aplicación Vue';
+  const baseTitle = 'Tu Chamba.pe';
   document.title = `${baseTitle} | ${to.meta.title || 'Sin Título'}`;
   next();
 });

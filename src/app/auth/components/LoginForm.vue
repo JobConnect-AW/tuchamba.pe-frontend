@@ -11,7 +11,8 @@ const password = ref('');
 const login = () => {
   console.log('Email:', email.value);
   console.log('Password:', password.value);
-  // Aquí puedes hacer la lógica de login con tu API
+  // Redirect to dashboard after login
+  window.location.href = '/dashboard/customer';
 };
 </script>
 
