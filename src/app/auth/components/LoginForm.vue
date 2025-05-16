@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
+import { RouterLink } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -16,7 +17,7 @@ const login = () => {
 
 <template>
   <div class="login-form">
-    <h2>Iniciar Sesión</h2>
+    <h2 class="text-2xl !font-bold !mb-5">Iniciar Sesión</h2>
 
     <div class="form-group">
       <label for="email">Dirección de e-mail</label>
@@ -27,12 +28,12 @@ const login = () => {
       <Password id="password" v-model="password" class="w-full" toggleMask />
     </div>
 
-    <Button label="Iniciar Sesión" class="w-full mt-3" @click="login" />
+    <Button label="Iniciar Sesión" severity="warn" class="w-full mt-3" @click="login" />
 
     <div class="links">
       <a href="/password-recovery" class="link">¿Olvidaste tu contraseña?</a>
       <br />
-      <span>¿No tienes una cuenta? <a href="/sign-up" class="link">Regístrate</a></span>
+      <span>¿No tienes una cuenta? <RouterLink to="/sign-up" class="link">Regístrate</RouterLink></span>
     </div>
 
   </div>
@@ -45,7 +46,6 @@ const login = () => {
   margin: auto;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -56,6 +56,7 @@ const login = () => {
   color: #2f80ed;
   text-decoration: none;
   font-size: 0.9rem;
+  background-color: transparent !important;
 }
 
 .link:hover {

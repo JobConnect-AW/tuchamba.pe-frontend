@@ -3,19 +3,9 @@ import PasswordRecoveryForm from "@/app/auth/components/PasswordRecoveryForm.vue
 </script>
 
 <template>
-  <div class="main-box">
-    <div class="main-column">
-      <div class="form">
-        <!-- Aquí usamos el LoginForm -->
-        <PasswordRecoveryForm />
-      </div>
-    </div>
-
-
-    <div class="right-column">
-      <!-- Puedes agregar contenido aquí después -->
-    </div>
-  </div>
+  <section class="main-box bg-primary">
+    <PasswordRecoveryForm />
+  </section>
 </template>
 
 <style scoped>
@@ -23,5 +13,12 @@ import PasswordRecoveryForm from "@/app/auth/components/PasswordRecoveryForm.vue
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.main-box {
+  height: 100vh;
+  display: flex;
+
+  flex-direction: row;
 }
 </style>

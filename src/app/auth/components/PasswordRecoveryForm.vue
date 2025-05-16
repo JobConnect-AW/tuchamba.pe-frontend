@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
+import { RouterLink } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -16,21 +17,21 @@ const login = () => {
 
 <template>
   <div class="login-form">
-    <div class="logo">
-      <img src="/public/favicon.svg" alt="JobConnect" class="logo-img" />
-      <h1>JobConnect</h1>
+    <div class="logo flex items-center justify-center">
+      <img src="/public/favicon.svg" alt="JobConnect" class="logo-img size-10" />
+      <h1 class="!font-bold">JobConnect</h1>
     </div>
-    <h2>Recuperar Contraseña</h2>
+    <h2 class="text-center !font-semibold !mt-2 text-xl !mb-2">Recuperar Contraseña</h2>
 
-    <div class="form-group">
-      <label for="email">Dirección de e-mail</label>
+    <div class="form-group max-w-[85%] !mx-auto">
+      <label for="email" class="!text-sm">Dirección de e-mail</label>
       <InputText id="email" v-model="email" type="email" class="w-full" />
     </div>
 
-    <Button label="Enviar Código" class="w-full mt-3" @click="login" />
+    <Button severity="warn"  label="Enviar Código" class="w-full" @click="login" />
 
     <div class="links">
-      <a href="login" class="link">Volver a la vista anterior</a>
+      <RouterLink to="login" class="link">Volver a la vista anterior</RouterLink>
   </div>
 
   </div>
@@ -45,6 +46,7 @@ const login = () => {
 }
 
 .login-form {
+  background-color: white;
   max-width: 350px;
   margin: auto;
   padding: 2rem;
@@ -53,13 +55,14 @@ const login = () => {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem !important;
 }
 
 .link {
   color: #2f80ed;
   text-decoration: none;
   font-size: 0.9rem;
+  background-color: transparent !important;
 }
 
 .link:hover {

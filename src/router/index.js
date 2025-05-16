@@ -23,6 +23,22 @@ const router = createRouter({
       ]
     },
     {
+      path: '/login',
+      component: () => import('@/app/auth/pages/Login.vue'),
+    },
+    {
+      path: '/sign-up',
+      component: () => import('@/app/auth/pages/SignUp.vue'),
+    },
+    {
+      path: '/login',
+      component: () => import('@/app/auth/pages/Login.vue'),
+    },
+    {
+      path: '/password-recovery',
+      component: () => import('@/app/auth/pages/PasswordRecovery.vue'),
+    },
+    {
       path: '/perfil-trabajador',
       name: 'PerfilTrabajador',
       component: MyProfileTrabajador
@@ -41,36 +57,77 @@ const router = createRouter({
     { path: '/buscar-tecnicos', name: 'buscarTecnicos', component: BuscarTecnicos, meta: { title: 'Buscar Técnicos' } },
     { path: '/comparar-perfiles', name: 'compararPerfiles', component: CompararPerfiles, meta: { title: 'Comparar Perfiles' } },
     { path: '/configuracion', name: 'configuracion', component: Configuracion, meta: { title: 'Configuración' } },
-    { path: '/:pathMatch(.*)*', redirect: '/' },
     {
-      path: '/ofertas',
-      name: 'offers',
+      path: '/cliente',
+      name: 'customer',
       children: [
         {
-          path: '',
-          name: 'offers-list',
-          component: () => import('../app/offers/pages/list-offers.page.vue'),
-        },
-        {
-          path: 'oferta',
-          name: 'offer',
-          component: () => import('../app/offers/layouts/offer-page.layout.vue'),
+          path: '/ofertas',
+          name: 'offers',
           children: [
             {
-              path: 'crear',
-              name: 'new-offer',
-              component: () => import('../app/offers/pages/create-offer.page.vue'),
+              path: '',
+              name: 'offers-list',
+              component: () => import('../app/offers/pages/list-offers.page.vue'),
             },
             {
-              path: ':uid',
-              name: 'offer-detail',
-              component: () => import('../app/offers/pages/details-offer.page.vue'),
+              path: 'oferta',
+              name: 'offer',
+              component: () => import('../app/offers/layouts/offer-page.layout.vue'),
+              children: [
+                {
+                  path: 'crear',
+                  name: 'new-offer',
+                  component: () => import('../app/offers/pages/create-offer.page.vue'),
+                },
+                {
+                  path: ':uid',
+                  name: 'offer-detail',
+                  component: () => import('../app/offers/pages/details-offer.page.vue'),
+                },
+              ],
             },
           ],
+          meta: { title: 'Ofertas' }
         },
-      ],
-      meta: { title: 'Ofertas' }
+      ]
     },
+    {
+      path: '/trabajador',
+      name: 'worker',
+      children: [
+        {
+          path: '/',
+          name: 'offers',
+          children: [
+            {
+              path: '',
+              name: 'offers-list',
+              component: () => import('../app/offers/pages/list-offers.page.vue'),
+            },
+            {
+              path: 'oferta',
+              name: 'offer',
+              component: () => import('../app/offers/layouts/offer-page.layout.vue'),
+              children: [
+                {
+                  path: 'crear',
+                  name: 'new-offer',
+                  component: () => import('../app/offers/pages/create-offer.page.vue'),
+                },
+                {
+                  path: ':uid',
+                  name: 'offer-detail',
+                  component: () => import('../app/offers/pages/details-offer.page.vue'),
+                },
+              ],
+            },
+          ],
+          meta: { title: 'Ofertas' }
+        },
+      ]
+    },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
   ]
 });
 
