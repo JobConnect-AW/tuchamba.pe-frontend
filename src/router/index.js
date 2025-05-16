@@ -9,6 +9,7 @@ import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
 import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
 import Home from '@/app/userContext/pages/Home.vue';
 import BuscarTecnicos from '@/app/userContext/pages/BuscarTecnicos.vue';
+import PagoPlan from '@/app/worker/views/PagoPlan.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,31 +24,21 @@ const router = createRouter({
       ]
     },
     {
-      path: '/login',
-      component: () => import('@/app/auth/pages/Login.vue'),
-    },
-    {
-      path: '/sign-up',
-      component: () => import('@/app/auth/pages/SignUp.vue'),
-    },
-    {
-      path: '/login',
-      component: () => import('@/app/auth/pages/Login.vue'),
-    },
-    {
-      path: '/password-recovery',
-      component: () => import('@/app/auth/pages/PasswordRecovery.vue'),
-    },
-    {
       path: '/perfil-trabajador',
       name: 'PerfilTrabajador',
       component: MyProfileTrabajador
     },
-    { path: '/configuracion', name: 'Configuracion', component: Configuracion },
+    { path: '/configuracion', name: 'configuracion', component: Configuracion, meta: { title: 'Configuración' } },
     {
       path: '/trabajador/configuracion/planes',
-      name: 'Planes',
-      component: Planes
+      component: Planes,
+      name: 'Planes'
+    },
+    {
+      path: '/trabajador/configuracion/planes/pago/:plan',       // ➜ /trabajador/configuracion/planes/pago/basic
+      name: 'PagoPlan',
+      component: PagoPlan,
+      meta: { title: 'Pago' }
     },
     {
       path: '/search-offers',
