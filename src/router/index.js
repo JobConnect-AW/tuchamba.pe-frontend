@@ -1,23 +1,90 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import CompareProfiles from '@/app/public/CompareProfiles.vue'
+import WorkerDashboard from '@/app/worker/views/WorkerDashboard.vue'
+import CustomerDashboard from '@/app/customer/pages/CustomerDashboard.vue'
+import Configuracion from '@/app/worker/views/Configuracion.vue';
+import MyProfileTrabajador from '@/app/worker/views/MyProfile-Trabajador.vue';
+import Planes from '@/app/worker/views/Planes.vue';
+import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
+import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
+import Home from '@/app/userContext/pages/Home.vue';
+import BuscarTecnicos from '@/app/userContext/pages/BuscarTecnicos.vue';
+import PagoPlan from '@/app/worker/views/PagoPlan.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView,
+      path: '/dashboard',
+      children: [
+        { path: 'comparar', component: CompareProfiles },
+        { path: '', redirect: '/comparar' },
+        { path: 'worker', component: WorkerDashboard },
+        { path: 'customer', component: CustomerDashboard }
+      ]
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/perfil-trabajador',
+      name: 'PerfilTrabajador',
+      component: MyProfileTrabajador
     },
-  ],
-})
+    { path: '/configuracion', name: 'configuracion', component: Configuracion, meta: { title: 'Configuración' } },
+    {
+      path: '/trabajador/configuracion/planes',
+      component: Planes,
+      name: 'Planes'
+    },
+    {
+      path: '/trabajador/configuracion/planes/pago/:plan',       // ➜ /trabajador/configuracion/planes/pago/basic
+      name: 'PagoPlan',
+      component: PagoPlan,
+      meta: { title: 'Pago' }
+    },
+    {
+      path: '/search-offers',
+      component: SearchOffers
+    },
+    { path: '/', name: 'home', component: Home, meta: { title: 'Inicio' } },
+    { path: '/buscar-tecnicos', name: 'buscarTecnicos', component: BuscarTecnicos, meta: { title: 'Buscar Técnicos' } },
+    { path: '/comparar-perfiles', name: 'compararPerfiles', component: CompararPerfiles, meta: { title: 'Comparar Perfiles' } },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+    {
+      path: '/ofertas',
+      name: 'offers',
+      children: [
+        {
+          path: '',
+          name: 'offers-list',
+          component: () => import('../app/offers/pages/list-offers.page.vue'),
+        },
+        {
+          path: 'oferta',
+          name: 'offer',
+          component: () => import('../app/offers/layouts/offer-page.layout.vue'),
+          children: [
+            {
+              path: 'crear',
+              name: 'new-offer',
+              component: () => import('../app/offers/pages/create-offer.page.vue'),
+            },
+            {
+              path: ':uid',
+              name: 'offer-detail',
+              component: () => import('../app/offers/pages/details-offer.page.vue'),
+            },
+          ],
+        },
+      ],
+      meta: { title: 'Ofertas' }
+    },
+  ]
+});
 
-export default router
+
+router.beforeEach((to, from, next) => {
+  const baseTitle = 'Mi Aplicación Vue';
+  document.title = `${baseTitle} | ${to.meta.title || 'Sin Título'}`;
+  next();
+});
+
+export default router;
