@@ -1,81 +1,64 @@
 <template>
-  <aside class="app-sidebar">
-    <div class="profile">
-      <img :src="userImg" class="profile-img" alt="Usuario" />
-      <div class="name">James Cooper</div>
-      <pv-button label="Personalizar Perfil" class="p-button-sm p-button-outlined" />
+  <nav :class="{
+    'hidden md:flex bg-[#0066FF] w-[12.5%]': !props.isMobile,
+    'flex w-full': props.isMobile,
+  }" class="sticky top-0 left-0 bottom-0 p-4 flex-col gap-3">
+    <div class="flex flex-col items-center">
+      <img :src="userImg" alt="User Avatar" class="user-avatar" />
+      <h2 class="user-name text-white !text-base">James Cooper</h2>
+      <RouterLink
+        :to="{ name: 'configuracion' }"
+        class="user-role !text-gray-100 !text-xs hover:!bg-transparent"
+      >
+        Personalizar Perfil</RouterLink
+      >
     </div>
 
-    <ul class="menu">
-      <li v-for="i in items" :key="i.to">
-        <router-link :to="i.to" class="menu-link" active-class="active">
-          <i :class="`pi pi-${i.icon}`"></i>
-          <span>{{ i.label }}</span>
-        </router-link>
+    <ul class="flex flex-1 flex-col justify-center 2xl:justify-start gap-2">
+      <li v-for="item in navItems" :key="item.name">
+        <RouterLink
+          :to="{ name: item.name }"
+          activeClass="bg-[#1c4790]"
+          class="flex flex-col gap-2 items-center justify-center !text-white cursor-pointer hover:!bg-[#1c4790] rounded-lg !py-2 transition-all duration-200"
+        >
+          <i :class="item.icon" class="!text-base"></i>
+          <span class="text-center text-xs">{{ item.label }}</span>
+        </RouterLink>
       </li>
     </ul>
-  </aside>
+  </nav>
 </template>
 
 <script setup>
-import userImg from '@/assets/user.png'
+import { RouterLink, useRouter } from 'vue-router'
+import userAvatar from '../../assets/User1.png'
+import { defineProps } from 'vue'
 
-const items = [
-  { to:'/',         label:'Inicio',            icon:'home' },
-  { to:'/buscar',   label:'Buscar técnicos',   icon:'search' },
-  { to:'/ofertas',  label:'Ofertas',           icon:'file' },
-  { to:'/comparar', label:'Comparar Perfiles', icon:'users' },
-  { to:'/config',   label:'Configuración',     icon:'cog' }
+const props = defineProps({
+  isMobile: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const router = useRouter()
+const userImg = userAvatar
+
+const navItems = [
+  { name: 'home', route: 'home', icon: 'pi pi-home', label: 'Inicio' },
+  {
+    name: 'buscarTecnicos',
+    route: 'buscarTecnicos',
+    icon: 'pi pi-search',
+    label: 'Buscar Técnicos',
+  },
+  { name: 'offers-list', route: 'offers', icon: 'pi pi-file-check', label: 'Ofertas' },
+  {
+    name: 'compararPerfiles',
+    route: 'compararPerfiles',
+    icon: 'pi pi-users',
+    label: 'Comparar Perfiles',
+  },
+  { name: 'configuracion', route: 'configuracion', icon: 'pi pi-cog', label: 'Configuración' },
 ]
 </script>
-
-<style scoped>
-.app-sidebar {
-  width: 240px;
-  background: #0066cc;
-  color: #fff;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.profile {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.profile-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  margin-bottom: .5rem;
-  object-fit: cover;
-}
-.name {
-  font-weight: bold;
-  margin-bottom: .5rem;
-}
-.menu {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-}
-.menu-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: .75rem 0;
-  color: #fff;
-  text-decoration: none;
-  transition: background .2s;
-}
-.menu-link i {
-  font-size: 1.5rem;
-  margin-bottom: .25rem;
-}
-.menu-link.active,
-.menu-link:hover {
-  background: rgba(255,255,255,0.2);
-  border-radius: 4px;
-}
-</style>

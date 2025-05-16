@@ -4,13 +4,15 @@ import { useRoute } from 'vue-router'
 import { GetOfferByUidUseCase } from '../application/use-cases/get-offer-by-uid.usecase'
 import ApiOfferRepository from '../infrastructure/repositories/api-offer.repository'
 import { HttpService } from '@/app/shared/infrastructure/services/http.service'
+import { Button } from 'primevue'
 
 const route = useRoute()
 const offer = ref(null)
 provide('offer', offer)
+
 const apiOfferRepository = new ApiOfferRepository(new HttpService())
 
-const isNewOfferPath = computed(() => route.path === '/offers/offer/new')
+const isNewOfferPath = computed(() => route.path === '/ofertas/oferta/crear')
 
 const isOfferActive = computed(() => !isNewOfferPath.value && offer.value?.status === 'active')
 const isOfferPending = computed(() => !isNewOfferPath.value && offer.value?.status === 'pending')
@@ -33,41 +35,39 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="p-6 bg-white rounded-lg">
-    <div class="mb-6">
-      <div class="flex items-center justify-between">
-        <Button
-          class="px-4 py-2 rounded font-semibold"
-          :class="isNewOfferPath ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-500'"
-          :disabled="!isNewOfferPath"
-        >
-          Crear Oferta
-        </Button>
-        <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
-        <Button
-          class="px-4 py-2 rounded font-semibold"
-          :class="isOfferActive ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-500'"
-          :disabled="isNewOfferPath || !isOfferActive"
-        >
-          Activa
-        </Button>
-        <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
-        <Button
-          class="px-4 py-2 rounded font-semibold"
-          :class="isOfferPending ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-500'"
-          :disabled="isNewOfferPath || !isOfferPending"
-        >
-          Pendiente
-        </Button>
-        <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
-        <Button
-          class="px-4 py-2 rounded font-semibold"
-          :class="isOfferFinished ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-500'"
-          :disabled="isNewOfferPath || !isOfferFinished"
-        >
-          Finalizada
-        </Button>
-      </div>
+  <section class="px-6 bg-white py-2 flex flex-col gap-4 pb-4">
+    <div class="flex items-center justify-between">
+      <Button
+        class="px-4 py-2 rounded font-semibold"
+        :class="isNewOfferPath ? 'bg-blue-600 text-white' : '!bg-gray-300 !border-gray-100 !text-gray-500'"
+        :disabled="!isNewOfferPath"
+      >
+        Crear Oferta
+      </Button>
+      <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
+      <Button
+        class="px-4 py-2 rounded font-semibold"
+        :class="isOfferActive ? 'bg-blue-600 text-white' : '!bg-gray-300 !border-gray-100 !text-gray-500'"
+        :disabled="isNewOfferPath || !isOfferActive"
+      >
+        Activa
+      </Button>
+      <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
+      <Button
+        class="px-4 py-2 rounded font-semibold"
+        :class="isOfferPending ? 'bg-blue-600 text-white' : '!bg-gray-300 !border-gray-100 !text-gray-500'"
+        :disabled="isNewOfferPath || !isOfferPending"
+      >
+        Pendiente
+      </Button>
+      <div class="h-[0.25rem] bg-gray-300 flex-1"></div>
+      <Button
+        class="px-4 py-2 rounded font-semibold"
+        :class="isOfferFinished ? 'bg-blue-600 text-white' : '!bg-gray-300 !border-gray-100 !text-gray-500'"
+        :disabled="isNewOfferPath || !isOfferFinished"
+      >
+        Finalizada
+      </Button>
     </div>
     <router-view />
   </section>

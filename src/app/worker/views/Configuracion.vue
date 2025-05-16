@@ -1,11 +1,7 @@
 <template>
   <div class="config">
-    <!-- Reutiliza tu Sidebar -->
-    <Sidebar />
 
     <div class="config__content">
-      <!-- Encabezado específico de Configuración -->
-      <HeaderBarConfiguracion />
 
       <section class="config__section">
         <div class="config__grid">
@@ -114,7 +110,6 @@
 <script setup>
 import { reactive } from 'vue'
 
-import HeaderBarConfiguracion from '../components/public/HeaderBarConfiguracion.vue'
 import ToggleSwitch from '../components/public/ToggleSwitch.vue'
 
 const form = reactive({
@@ -148,8 +143,7 @@ function deleteAccount() {
 /* Contenedor general */
 .config {
   display: flex;
-  min-height: 100vh;
-  background: #f0f2f5;
+  min-height: 100dvh;
 }
 
 /* Contenido principal */

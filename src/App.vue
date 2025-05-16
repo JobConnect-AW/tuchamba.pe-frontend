@@ -2,19 +2,18 @@
   <div class="app-layout flex h-screen">
     <Sidebar />
     <div class="flex-1 flex flex-col overflow-auto">
-
+      <Header />
       <router-view />
     </div>
   </div>
 </template>
 
 <script setup>
-import Sidebar from '@/app/shared/components/Sidebar.vue'
-import HeaderBar from '@/app/shared/components/HeaderBar.vue'
+import Sidebar from '@/app/public/components/Sidebar.vue'
+import Header from '@/app/public/components/Header.vue'
 </script>
 
 <style global>
 @import 'tailwindcss';
-@import "tailwindcss-primeui";
-
+@import 'tailwindcss-primeui';
 </style>
