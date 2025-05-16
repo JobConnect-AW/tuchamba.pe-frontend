@@ -1,8 +1,6 @@
 <!-- src/app/userContext/pages/BuscarTecnicos.vue -->
 <template>
   <div class="h-full flex flex-col bg-gray-100">
-    <!-- Header -->
-    <HeaderBarBuscar />
 
     <!-- Filtros + cards -->
     <div class="flex-1 flex overflow-hidden px-6 pb-6">

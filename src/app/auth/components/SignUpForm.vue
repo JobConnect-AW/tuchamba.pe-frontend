@@ -31,7 +31,7 @@ const login = () => {
     <Button label="Iniciar Sesión" severity="warn" class="w-full mt-3" @click="login" />
 
     <div class="links">
-      <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+      <RouterLink to="/password-recovery" class="link">¿Olvidaste tu contraseña?</RouterLink>
       <br />
       <span>Si ya tienes cuenta <RouterLink to="/login" class="link">Inicia Sesión</RouterLink></span>
     </div>
