@@ -80,7 +80,7 @@
         <div>
           <h3 class="font-bold text-gray-700 mb-2">Mapa Geográfico</h3>
           <div class="w-full h-32 bg-gray-200 rounded overflow-hidden">
-            <img src="/api/placeholder/200/120" alt="Mapa de ubicación" class="w-full h-full object-cover" />
+            <!--<img src="/api/placeholder/200/120" alt="Mapa de ubicación" class="w-full h-full object-cover" />-->
           </div>
         </div>
       </div>
