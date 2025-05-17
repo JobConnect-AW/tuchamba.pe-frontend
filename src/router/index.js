@@ -85,8 +85,29 @@ const router = createRouter({
                 {
                   path: ':uid',
                   name: 'offer-detail',
-                  component: () => import('../app/offers/pages/details-offer.page.vue'),
+                  children: [
+                    {
+                      path: '',
+                      component: () => import('../app/offers/pages/details-offer.page.vue'),
+                    },
+                    {
+                      path: 'finalizado',
+                      name: 'offer-detail-finished',
+                      component: () => import('../app/offers/components/details-offer/details-offer-finished.component.vue'),
+                    },
+                    {
+                      path: 'pendiente-pago',
+                      name: 'offer-detail-pay',
+                      component: () => import('../app/offers/components/details-offer/details-offer-pending-pay.component.vue'),
+                    },
+                    {
+                      path: 'pendiente',
+                      name: 'offer-detail-pending',
+                      component: () => import('../app/offers/components/details-offer/details-offer-pending.component.vue'),
+                    },
+                  ]
                 },
+
               ],
             },
           ],

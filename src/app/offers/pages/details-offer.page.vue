@@ -7,6 +7,7 @@ import DetailsOfferPendingComponentPay from '../components/details-offer/details
 import DetailsOfferFinishedComponentPay from '../components/details-offer/details-offer-finished.component.vue'
 
 const offer = inject('offer');
+
 </script>
 
 <template>
