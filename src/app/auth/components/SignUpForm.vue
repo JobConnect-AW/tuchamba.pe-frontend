@@ -3,15 +3,17 @@ import { ref } from 'vue';
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 
 const email = ref('');
 const password = ref('');
+const router = useRouter();
 
 const login = () => {
   console.log('Email:', email.value);
   console.log('Password:', password.value);
-  // Aquí puedes hacer la lógica de login con tu API
+
+  router.push('/');
 };
 </script>
 

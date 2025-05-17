@@ -3,16 +3,25 @@ import { ref } from 'vue';
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+import { HttpService } from '@/app/shared/infrastructure/services/http.service';
+import { AuthService } from '../infrastructure/services/auth.service';
 
 const email = ref('');
 const password = ref('');
+const router = useRouter();
 
-const login = () => {
-  console.log('Email:', email.value);
-  console.log('Password:', password.value);
-  // Redirect to dashboard after login
-  window.location.href = '/dashboard/customer';
+const login = async () => {
+
+  const authService = new AuthService(new HttpService());
+
+  await authService.signIn(
+    email.value,
+    password.value,
+  );
+
+  router.push('/');
+
 };
 </script>
 
@@ -41,7 +50,6 @@ const login = () => {
 </template>
 
 <style scoped>
-
 .login-form {
   max-width: 350px;
   margin: auto;

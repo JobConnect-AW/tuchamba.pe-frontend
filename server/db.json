@@ -1,276 +1,291 @@
 {
-    "workers": [
+  "workers": [
+    {
+      "workerId": "550e8400-e29b-41d4-a716-446655440000",
+      "user": {
+        "userId": "a47c6e3d-291d-4aa4-9f2e-69da5a2427b3",
+        "accountId": "b2d8f3c1-5e6a-4b7c-9d2e-8f4a3b5c6d7e",
+        "firstName": "Alan",
+        "lastName": "Perez",
+        "email": "alan.perez@gmail.com",
+        "role": "worker"
+      },
+      "Photo": "",
+      "field": "Electricista",
+      "experience": [
         {
-            "workerId": "550e8400-e29b-41d4-a716-446655440000",
-            "user": {
-                "userId": "a47c6e3d-291d-4aa4-9f2e-69da5a2427b3",
-                "accountId": "b2d8f3c1-5e6a-4b7c-9d2e-8f4a3b5c6d7e",
-                "firstName": "Alan",
-                "lastName": "Perez",
-                "email": "alan.perez@gmail.com",
-                "role": "worker"
-            },
-            "Photo": "",
-            "field": "Electricista",
-            "experience": [
-                {
-                    "company": "Electricidad Surquillo",
-                    "startDate": "2010-01-01",
-                    "endDate": "2015-12-31",
-                    "isCurrently": false
-                }
-            ],
-            "skills": [
-                "Electricidad",
-                "Cableado",
-                "Luminarias"
-            ],
-            "certifications": [
-                "Certificado de electricidad"
-            ],
-            "availabity": "Lunes a Viernes",
-            "hourlyRate": 100,
-            "projectsCompleted": 2,
-            "rating": 4.5
-        },
-        {
-            "workerId": "7a1b9c8d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
-            "user": {
-                "userId": "d5e6f7g8-9h0i-1j2k-3l4m-5n6o7p8q9r0",
-                "accountId": "s1t2u3v4-5w6x-7y8z-9a0b-1c2d3e4f5g6",
-                "firstName": "Carlos",
-                "lastName": "Rodríguez",
-                "email": "carlos.rodriguez@gmail.com",
-                "role": "worker"
-            },
-            "field": "Electricista",
-            "experience": [
-                {
-                    "company": "Electro Solutions",
-                    "startDate": "2012-03-15",
-                    "endDate": "2018-06-30",
-                    "isCurrently": false
-                },
-                {
-                    "company": "Instalaciones Eléctricas Lima",
-                    "startDate": "2018-07-01",
-                    "endDate": null,
-                    "isCurrently": true
-                }
-            ],
-            "skills": [
-                "Instalaciones industriales",
-                "Mantenimiento preventivo",
-                "Sistemas de emergencia"
-            ],
-            "certifications": [
-                "Técnico Electricista Certificado",
-                "Seguridad Eléctrica Industrial"
-            ],
-            "availabity": "Lunes a Sábado",
-            "hourlyRate": 120,
-            "projectsCompleted": 15,
-            "rating": 4.8
-        },
-        {
-            "workerId": "b1c2d3e4-f5g6-7h8i-9j0k-l1m2n3o4p5q",
-            "user": {
-                "userId": "r6s7t8u9-v0w1-x2y3-z4a5-b6c7d8e9f0g",
-                "accountId": "h1i2j3k4-l5m6-n7o8-p9q0-r1s2t3u4v5w",
-                "firstName": "Miguel",
-                "lastName": "Torres",
-                "email": "miguel.torres@gmail.com",
-                "role": "worker"
-            },
-            "field": "Electricista",
-            "experience": [
-                {
-                    "company": "Servicios Eléctricos Express",
-                    "startDate": "2015-01-01",
-                    "endDate": null,
-                    "isCurrently": true
-                }
-            ],
-            "skills": [
-                "Domótica",
-                "Instalaciones residenciales",
-                "Energía solar"
-            ],
-            "certifications": [
-                "Especialista en Domótica",
-                "Instalador Certificado de Paneles Solares"
-            ],
-            "availabity": "Martes a Domingo",
-            "hourlyRate": 150,
-            "projectsCompleted": 8,
-            "rating": 4.9
+          "company": "Electricidad Surquillo",
+          "startDate": "2010-01-01",
+          "endDate": "2015-12-31",
+          "isCurrently": false
         }
-    ],
-    "customers": [
+      ],
+      "skills": [
+        "Electricidad",
+        "Cableado",
+        "Luminarias"
+      ],
+      "certifications": [
+        "Certificado de electricidad"
+      ],
+      "availabity": "Lunes a Viernes",
+      "hourlyRate": 100,
+      "projectsCompleted": 2,
+      "rating": 4.5
+    },
+    {
+      "workerId": "7a1b9c8d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
+      "user": {
+        "userId": "d5e6f7g8-9h0i-1j2k-3l4m-5n6o7p8q9r0",
+        "accountId": "s1t2u3v4-5w6x-7y8z-9a0b-1c2d3e4f5g6",
+        "firstName": "Carlos",
+        "lastName": "Rodríguez",
+        "email": "carlos.rodriguez@gmail.com",
+        "role": "worker"
+      },
+      "field": "Electricista",
+      "experience": [
         {
-            "customerId": "9876543210-abcd-efgh-ijkl-mnopqrstuvwx",
-            "user": {
-                "userId": "f8e7d6c5-b4a3-2109-8765-432109876543",
-                "accountId": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
-                "firstName": "María",
-                "lastName": "González",
-                "email": "maria.gonzalez@gmail.com",
-                "role": "customer"
-            }
+          "company": "Electro Solutions",
+          "startDate": "2012-03-15",
+          "endDate": "2018-06-30",
+          "isCurrently": false
         },
         {
-            "customerId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-            "user": {
-                "userId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-                "accountId": "3c4d5e6f-7g8h-9i0j-k1l2-m3n4o5p6q7r8",
-                "firstName": "Juan",
-                "lastName": "Mendoza",
-                "email": "juan.mendoza@gmail.com",
-                "role": "customer"
-            }
-        },
-        {
-            "customerId": "4d5e6f7g-8h9i-0j1k-l2m3-n4o5p6q7r8s9",
-            "user": {
-                "userId": "5e6f7g8h-9i0j-k1l2-m3n4-o5p6q7r8s9t0",
-                "accountId": "6f7g8h9i-0j1k-l2m3-n4o5-p6q7r8s9t0u1",
-                "firstName": "Ana",
-                "lastName": "Silva",
-                "email": "ana.silva@gmail.com",
-                "role": "customer"
-            }
-        },
-        {
-            "customerId": "7g8h9i0j-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
-            "user": {
-                "userId": "8h9i0j1k-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
-                "accountId": "9i0j1k2l-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
-                "firstName": "Pedro",
-                "lastName": "Ramírez",
-                "email": "pedro.ramirez@gmail.com",
-                "role": "customer"
-            }
+          "company": "Instalaciones Eléctricas Lima",
+          "startDate": "2018-07-01",
+          "endDate": null,
+          "isCurrently": true
         }
-    ],
-    "offers": [
+      ],
+      "skills": [
+        "Instalaciones industriales",
+        "Mantenimiento preventivo",
+        "Sistemas de emergencia"
+      ],
+      "certifications": [
+        "Técnico Electricista Certificado",
+        "Seguridad Eléctrica Industrial"
+      ],
+      "availabity": "Lunes a Sábado",
+      "hourlyRate": 120,
+      "projectsCompleted": 15,
+      "rating": 4.8
+    },
+    {
+      "workerId": "b1c2d3e4-f5g6-7h8i-9j0k-l1m2n3o4p5q",
+      "user": {
+        "userId": "r6s7t8u9-v0w1-x2y3-z4a5-b6c7d8e9f0g",
+        "accountId": "h1i2j3k4-l5m6-n7o8-p9q0-r1s2t3u4v5w",
+        "firstName": "Miguel",
+        "lastName": "Torres",
+        "email": "miguel.torres@gmail.com",
+        "role": "worker"
+      },
+      "field": "Electricista",
+      "experience": [
         {
-            "id": 1,
-            "title": "Instalación eléctrica en local comercial",
-            "description": "Se requiere un electricista con experiencia para la instalación completa de cableado, tomacorrientes y luminarias en un pequeño local de 50 m² en Surquillo. Se proporcionarán los materiales.",
-            "payment": {
-                "method": "Yape",
-                "amount": 600
-            },
-            "category": "Electricista",
-            "duration": "2 día/s",
-            "status": "NUEVA"
-        },
-        {
-            "id": 2,
-            "title": "Mantenimiento de sistema eléctrico en departamento",
-            "description": "Busco técnico para revisar y reparar problemas de conexión en tomacorrientes y luces en un departamento de 3 habitaciones en San Miguel. Trabajo sencillo.",
-            "payment": {
-                "method": "Yape",
-                "amount": 250
-            },
-            "category": "Electricista",
-            "duration": "1 día/s",
-            "status": "NUEVA"
-        },
-        {
-            "id": 3,
-            "title": "Instalación de focos LED y timbre inteligente",
-            "description": "Necesito un profesional para instalar 10 focos LED y un timbre con cámara en una casa familiar ubicada en Jesús María.",
-            "payment": {
-                "method": "Yape",
-                "amount": 180
-            },
-            "category": "Electricista",
-            "duration": "1 día/s",
-            "status": "NUEVA"
+          "company": "Servicios Eléctricos Express",
+          "startDate": "2015-01-01",
+          "endDate": null,
+          "isCurrently": true
         }
-    ],
-    "technicians": [
-        {
-            "id": 1,
-            "firstName": "Juan",
-            "lastName": "González",
-            "trade": "Electricista",
-            "yearsExp": 10,
-            "rating": 4.7,
-            "photo": "/src/assets/user.png"
-        },
-        {
-            "id": 2,
-            "firstName": "Teodoro",
-            "lastName": "Casanova",
-            "trade": "Plomero",
-            "yearsExp": 6,
-            "rating": 4.3,
-            "photo": "/src/assets/user2.png"
-        },
-        {
-            "id": 3,
-            "firstName": "Gracia",
-            "lastName": "Espinoza",
-            "trade": "Carpintera",
-            "yearsExp": 7,
-            "rating": 4.5,
-            "photo": "/src/assets/user3.png"
-        },
-        {
-            "id": 4,
-            "firstName": "Carlos",
-            "lastName": "Pérez",
-            "trade": "Técnico en electrodomésticos",
-            "yearsExp": 12,
-            "rating": 4.6,
-            "photo": "/src/assets/user4.png"
-        },
-        {
-            "id": 5,
-            "firstName": "Enrique",
-            "lastName": "López",
-            "trade": "Gasfitero",
-            "yearsExp": 8,
-            "rating": 4.4,
-            "photo": "/src/assets/user5.png"
-        },
-        {
-            "id": 6,
-            "firstName": "Pedro",
-            "lastName": "Cáceres",
-            "trade": "Albañil",
-            "yearsExp": 9,
-            "rating": 4.2,
-            "photo": "/src/assets/user6.png"
-        },
-        {
-            "id": 7,
-            "firstName": "Claudio",
-            "lastName": "Rivera",
-            "trade": "Pintor de obras",
-            "yearsExp": 5,
-            "rating": 4.1,
-            "photo": "/src/assets/user7.png"
-        },
-        {
-            "id": 8,
-            "firstName": "Yeri",
-            "lastName": "Kimio",
-            "trade": "Mecánico",
-            "yearsExp": 11,
-            "rating": 4.8,
-            "photo": "/src/assets/user8.png"
-        },
-        {
-            "id": 9,
-            "firstName": "Lucas",
-            "lastName": "Zapata",
-            "trade": "Soldador",
-            "yearsExp": 4,
-            "rating": 4.0,
-            "photo": "/src/assets/user9.png"
-        }
-    ]
+      ],
+      "skills": [
+        "Domótica",
+        "Instalaciones residenciales",
+        "Energía solar"
+      ],
+      "certifications": [
+        "Especialista en Domótica",
+        "Instalador Certificado de Paneles Solares"
+      ],
+      "availabity": "Martes a Domingo",
+      "hourlyRate": 150,
+      "projectsCompleted": 8,
+      "rating": 4.9
+    }
+  ],
+  "customers": [
+    {
+      "customerId": "9876543210-abcd-efgh-ijkl-mnopqrstuvwx",
+      "user": {
+        "userId": "f8e7d6c5-b4a3-2109-8765-432109876543",
+        "accountId": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+        "firstName": "María",
+        "lastName": "González",
+        "email": "maria.gonzalez@gmail.com",
+        "role": "customer"
+      }
+    },
+    {
+      "customerId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+      "user": {
+        "userId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
+        "accountId": "3c4d5e6f-7g8h-9i0j-k1l2-m3n4o5p6q7r8",
+        "firstName": "Juan",
+        "lastName": "Mendoza",
+        "email": "juan.mendoza@gmail.com",
+        "role": "customer"
+      }
+    },
+    {
+      "customerId": "4d5e6f7g-8h9i-0j1k-l2m3-n4o5p6q7r8s9",
+      "user": {
+        "userId": "5e6f7g8h-9i0j-k1l2-m3n4-o5p6q7r8s9t0",
+        "accountId": "6f7g8h9i-0j1k-l2m3-n4o5-p6q7r8s9t0u1",
+        "firstName": "Ana",
+        "lastName": "Silva",
+        "email": "ana.silva@gmail.com",
+        "role": "customer"
+      }
+    },
+    {
+      "customerId": "7g8h9i0j-k1l2-m3n4-o5p6-q7r8s9t0u1v2",
+      "user": {
+        "userId": "8h9i0j1k-l2m3-n4o5-p6q7-r8s9t0u1v2w3",
+        "accountId": "9i0j1k2l-m3n4-o5p6-q7r8-s9t0u1v2w3x4",
+        "firstName": "Pedro",
+        "lastName": "Ramírez",
+        "email": "pedro.ramirez@gmail.com",
+        "role": "customer"
+      }
+    }
+  ],
+  "offers": [
+    {
+      "id": 1,
+      "title": "Instalación eléctrica en local comercial",
+      "description": "Se requiere un electricista con experiencia para la instalación completa de cableado, tomacorrientes y luminarias en un pequeño local de 50 m² en Surquillo. Se proporcionarán los materiales.",
+      "payment": {
+        "method": "Yape",
+        "amount": 600
+      },
+      "category": "Electricista",
+      "duration": "2 día/s",
+      "status": "NUEVA"
+    },
+    {
+      "id": 2,
+      "title": "Mantenimiento de sistema eléctrico en departamento",
+      "description": "Busco técnico para revisar y reparar problemas de conexión en tomacorrientes y luces en un departamento de 3 habitaciones en San Miguel. Trabajo sencillo.",
+      "payment": {
+        "method": "Yape",
+        "amount": 250
+      },
+      "category": "Electricista",
+      "duration": "1 día/s",
+      "status": "NUEVA"
+    },
+    {
+      "id": 3,
+      "title": "Instalación de focos LED y timbre inteligente",
+      "description": "Necesito un profesional para instalar 10 focos LED y un timbre con cámara en una casa familiar ubicada en Jesús María.",
+      "payment": {
+        "method": "Yape",
+        "amount": 180
+      },
+      "category": "Electricista",
+      "duration": "1 día/s",
+      "status": "NUEVA"
+    }
+  ],
+  "technicians": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "González",
+      "trade": "Electricista",
+      "yearsExp": 10,
+      "rating": 4.7,
+      "photo": "/src/assets/user.png"
+    },
+    {
+      "id": 2,
+      "firstName": "Teodoro",
+      "lastName": "Casanova",
+      "trade": "Plomero",
+      "yearsExp": 6,
+      "rating": 4.3,
+      "photo": "/src/assets/user2.png"
+    },
+    {
+      "id": 3,
+      "firstName": "Gracia",
+      "lastName": "Espinoza",
+      "trade": "Carpintera",
+      "yearsExp": 7,
+      "rating": 4.5,
+      "photo": "/src/assets/user3.png"
+    },
+    {
+      "id": 4,
+      "firstName": "Carlos",
+      "lastName": "Pérez",
+      "trade": "Técnico en electrodomésticos",
+      "yearsExp": 12,
+      "rating": 4.6,
+      "photo": "/src/assets/user4.png"
+    },
+    {
+      "id": 5,
+      "firstName": "Enrique",
+      "lastName": "López",
+      "trade": "Gasfitero",
+      "yearsExp": 8,
+      "rating": 4.4,
+      "photo": "/src/assets/user5.png"
+    },
+    {
+      "id": 6,
+      "firstName": "Pedro",
+      "lastName": "Cáceres",
+      "trade": "Albañil",
+      "yearsExp": 9,
+      "rating": 4.2,
+      "photo": "/src/assets/user6.png"
+    },
+    {
+      "id": 7,
+      "firstName": "Claudio",
+      "lastName": "Rivera",
+      "trade": "Pintor de obras",
+      "yearsExp": 5,
+      "rating": 4.1,
+      "photo": "/src/assets/user7.png"
+    },
+    {
+      "id": 8,
+      "firstName": "Yeri",
+      "lastName": "Kimio",
+      "trade": "Mecánico",
+      "yearsExp": 11,
+      "rating": 4.8,
+      "photo": "/src/assets/user8.png"
+    },
+    {
+      "id": 9,
+      "firstName": "Lucas",
+      "lastName": "Zapata",
+      "trade": "Soldador",
+      "yearsExp": 4,
+      "rating": 4.0,
+      "photo": "/src/assets/user9.png"
+    }
+  ],
+  "users": [
+    {
+      "userId": "a47c6e3d-291d-4aa4-9f2e-69da5a2427b3",
+      "accountId": "b2d8f3c1-5e6a-4b7c-9d2e-8f4a3b5c6d7e",
+      "firstName": "Alan",
+      "lastName": "Perez",
+      "email": "alan.perez@gmail.com",
+      "password": "hashed_password_1",
+      "role": "worker",
+      "photo": "/src/assets/user.png",
+      "phone": "987654321",
+      "address": "Av. Principal 123, Surquillo",
+      "city": "Lima"
+    }
+  ]
 }
