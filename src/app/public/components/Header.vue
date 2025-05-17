@@ -13,11 +13,15 @@ const pageTitle = computed(() => {
       return 'Inicio'
     case 'buscarTecnicos':
       return 'Buscar Técnicos'
-    case 'offers':
-    case 'offers-list':
-    case 'offer':
-    case 'new-offer':
-    case 'offer-detail':
+    case 'offers-customer':
+    case 'offers-list-customer':
+    case 'offer-customer':
+    case 'new-offer-customer':
+    case 'offer-detail-customer':
+    case 'offers-list-worker':
+    case 'offer-worker':
+    case 'new-offer-worker':
+    case 'offer-detail-worker':
       return 'Ofertas'
     case 'compararPerfiles':
       return 'Comparar Perfiles'

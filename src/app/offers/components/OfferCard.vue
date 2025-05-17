@@ -4,7 +4,7 @@
       <div class="left-section">
         <div class="offer-header">
           <div class="offer-icon">
-            <i class="fas fa-briefcase"></i>
+            <img src="/repair.png" class="fas fa-briefcase">
           </div>
           <div class="offer-title">{{ offer.title }}</div>
         </div>
