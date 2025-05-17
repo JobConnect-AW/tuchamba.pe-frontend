@@ -11,7 +11,6 @@ const password = ref('');
 const login = () => {
   console.log('Email:', email.value);
   console.log('Password:', password.value);
-  // Redirect to dashboard after login
   window.location.href = '/dashboard/customer';
 };
 </script>
