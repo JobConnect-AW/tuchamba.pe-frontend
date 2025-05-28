@@ -8,10 +8,6 @@ import MyPreset from './presets/my-preset'
 // Vue Router
 import router from "./router/index.js";
 
-// PrimeVue
-import PrimeVue from 'primevue/config';
-
-// Tema claro de PrimeVue (cambiamos a Lara o Saga Blue)
 // PrimeVue Icons
 import 'primeicons/primeicons.css';
 // Componentes de PrimeVue
@@ -47,10 +43,8 @@ import Select from "primevue/select";
 
 import SelectButton from "primevue/selectbutton";
 
-import { createPinia } from "pinia";
 import App from './App.vue';
 import Chart from 'primevue/chart';
-import MyPreset from './presets/my-preset';
 
 const app = createApp(App);
 const pinia = createPinia();
