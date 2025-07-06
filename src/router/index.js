@@ -10,10 +10,17 @@ import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
 import Home from '@/app/userContext/pages/Home.vue';
 import BuscarTecnicos from '@/app/userContext/pages/BuscarTecnicos.vue';
 import PagoPlan from '@/app/worker/views/PagoPlan.vue'
+import MyReputation from "@/app/worker/views/MyReputation.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/trabajador/MyReputation',   // La URL para acceder a la pantalla
+      name: 'MyReputation',
+      component: MyReputation,
+      meta: { title: 'MyReputation' }
+    },
     {
       path: '/login',
       name: 'Iniciar Sesión',
@@ -101,7 +108,7 @@ const router = createRouter({
       name: 'worker',
       children: [
         {
-          path: '/proposal',
+          path: 'proposal',
           name: 'proposal',
           component: () => import('../app/proposals/layouts/proposal-page.layout.vue'),
           children: [
@@ -112,6 +119,11 @@ const router = createRouter({
           ],
           meta: { title: 'Propuesta' }
         },
+        {
+          path: 'pending',
+          name: 'pending',
+          component: () => import('../app/offers/pages/pending-offer.vue'),
+        }
       ]
     }
   ]

@@ -2,16 +2,18 @@
   <div class="about-grid">
     <div class="left">
       <div class="form-group">
-        <label for="about-me">Sobre mí</label>
-        <PTextarea id="about-me" v-model="localAbout.me" rows="4" placeholder="Type here"/>
+        <label for="about-me">Sobre mí*</label>
+        <Textarea id="about-me" v-model="localAbout.me" rows="4" placeholder="Escribe sobre ti" />
       </div>
+
       <div class="form-group">
-        <label for="about-exp">Mis experiencias</label>
-        <PTextarea id="about-exp" v-model="localAbout.experiences" rows="4"/>
+        <label for="about-exp">Mis experiencias*</label>
+        <Textarea id="about-exp" v-model="localAbout.experiences" rows="4" placeholder="Describe tus experiencias" />
       </div>
+
       <div class="form-group">
-        <label for="about-skill">Mis habilidades</label>
-        <PTextarea id="about-skill" v-model="localAbout.skills" rows="4"/>
+        <label for="about-skill">Mis habilidades*</label>
+        <Textarea id="about-skill" v-model="localAbout.skills" rows="4" placeholder="Lista tus habilidades" />
       </div>
     </div>
     <div class="right">
