@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Iniciar Sesión',
-      component: () => import('@/app/auth/pages/Login.vue'),
+      component: () => import('@/app/auth/pages/login.vue'),
     },
     {
       path: '/sign-up',
