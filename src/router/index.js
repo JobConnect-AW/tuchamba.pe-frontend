@@ -37,6 +37,21 @@ const router = createRouter({
       component: () => import('@/app/auth/pages/PasswordRecovery.vue'),
     },
     {
+      path: '/profile-setup',
+      name: 'Configurar Perfil',
+      component: () => import('@/app/auth/pages/ProfileSetup.vue'),
+    },
+    {
+      path: '/customer-setup',
+      name: 'Configurar Cliente',
+      component: () => import('@/app/auth/pages/CustomerSetup.vue'),
+    },
+    {
+      path: '/worker-setup',
+      name: 'Configurar Trabajador',
+      component: () => import('@/app/auth/pages/WorkerSetup.vue'),
+    },
+    {
       path: '/dashboard',
       children: [
         { path: 'worker', component: WorkerDashboard },

@@ -15,7 +15,7 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
-const isPublic = computed(() => ['/login', '/sign-up', '/password-recovery'].includes(route.path));
+const isPublic = computed(() => ['/login', '/sign-up', '/password-recovery', '/worker-setup', '/customer-setup', '/profile-setup'].includes(route.path));
 </script>
 
 <style global>
