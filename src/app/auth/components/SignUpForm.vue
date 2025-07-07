@@ -5,7 +5,7 @@ import Password from 'primevue/password';
 import Button from 'primevue/button';
 import { RouterLink, useRouter } from 'vue-router';
 import { SignUpUseCase } from '../application/use-cases/sign-up.usecase';
-import ApiAuthRepository from '../infrastructure/repositories/api-auth.repository';
+import { ApiAuthRepository } from '../infrastructure/repositories/api-auth.repository';
 import { HttpService } from '@/app/shared/infrastructure/services/http.service';
 import { RegistrationService } from '../infrastructure/services/registration.service';
 import { SignUpDTO } from '../application/dtos/sign-up.dto';

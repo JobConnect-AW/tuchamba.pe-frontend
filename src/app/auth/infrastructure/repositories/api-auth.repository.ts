@@ -5,7 +5,7 @@ import { Customer } from '../../domain/entities/customer.entity'
 import { Worker } from '../../domain/entities/worker.entity'
 import { AuthRepository } from '../../domain/repositories/auth.repository'
 
-export default class ApiAuthRepository implements AuthRepository {
+export class ApiAuthRepository implements AuthRepository {
   constructor(private readonly httpService: HttpService) {}
 
   async signUp(account: Account): Promise<any> {

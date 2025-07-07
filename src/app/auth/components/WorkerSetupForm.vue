@@ -7,7 +7,7 @@ import Chips from 'primevue/chips';
 import Button from 'primevue/button';
 import { useRouter } from 'vue-router';
 import { SignUpUseCase } from '../application/use-cases/sign-up.usecase';
-import ApiAuthRepository from '../infrastructure/repositories/api-auth.repository';
+import { ApiAuthRepository } from '../infrastructure/repositories/api-auth.repository';
 import { HttpService } from '@/app/shared/infrastructure/services/http.service';
 import { RegistrationService } from '../infrastructure/services/registration.service';
 import { CreateWorkerDTO } from '../application/dtos/sign-up.dto';
@@ -62,7 +62,7 @@ const createWorker = async () => {
 
     RegistrationService.clearRegistrationData();
 
-    router.push('/');
+    router.push('/sign-in');
   } catch (error) {
     errorMessage.value = error.message || 'Error al crear el perfil de trabajador';
   } finally {

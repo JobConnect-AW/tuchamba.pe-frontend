@@ -5,6 +5,13 @@ export class SignUpDTO {
   ) {}
 }
 
+export class LoginDTO {
+  constructor(
+    public email: string,
+    public password: string,
+  ) {}
+}
+
 export class CreateUserDTO {
   constructor(
     public uid: string,
