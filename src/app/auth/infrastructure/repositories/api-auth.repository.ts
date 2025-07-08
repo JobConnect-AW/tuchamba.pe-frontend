@@ -6,7 +6,7 @@ import { Worker } from '../../domain/entities/worker.entity'
 import { AuthRepository } from '../../domain/repositories/auth.repository'
 
 export class ApiAuthRepository implements AuthRepository {
-  constructor(private readonly httpService: HttpService) {}
+  constructor(private readonly httpService: HttpService) { }
 
   async signUp(account: Account): Promise<any> {
     try {
@@ -76,6 +76,14 @@ export class ApiAuthRepository implements AuthRepository {
         delete this.httpService.axios.defaults.headers.common['Authorization']
       }
       throw new Error(`Error al crear perfil de trabajador: ${error.response?.data?.message || error.message}`)
+    }
+  }
+
+  async getUserByAccountUid(accountUid: string): Promise<User> {
+    try {
+      return await this.httpService.get(`/users/account/${accountUid}`)
+    } catch (error: any) {
+      throw new Error(`Error al obtener usuario: ${error.response?.data?.message || error.message}`)
     }
   }
 }

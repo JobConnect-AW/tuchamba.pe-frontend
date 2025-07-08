@@ -9,25 +9,20 @@ import { SignUpDTO, CreateCustomerDTO, CreateWorkerDTO } from '../dtos/sign-up.d
 export class SignUpUseCase {
   constructor(private readonly authRepository: AuthRepository) {}
 
-  async executeSignUp(data: SignUpDTO): Promise<{ accountUid: string; userUid: string; token: string }> {
+  async executeSignUp(data: SignUpDTO): Promise<{ accountUid: string; token: string }> {
     if (!data.email || !data.password) {
       throw new Error('El email y la contraseña son obligatorios')
     }
 
     const accountUid = v4()
-    const account = new Account(accountUid, data.email, data.password)
+    const account = new Account(accountUid, data.email, data.password, data.role)
 
     await this.authRepository.signUp(account)
 
     const signInResponse = await this.authRepository.signIn(data.email, data.password)
-    const token = signInResponse.token
+    const token = signInResponse.token;
 
-    const userUid = v4()
-    const user = new User(userUid, accountUid)
-
-    await this.authRepository.createUser(user, token)
-
-    return { accountUid, userUid, token }
+    return { accountUid, token }
   }
 
   async executeCreateCustomer(data: CreateCustomerDTO, token: string): Promise<Customer> {

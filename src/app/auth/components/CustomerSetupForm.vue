@@ -43,7 +43,7 @@ const createCustomer = async () => {
       firstName.value,
       lastName.value,
       phone.value,
-      'customer',
+      'CUSTOMER',
       location.value,
       bio.value
     );
@@ -69,14 +69,16 @@ const createCustomer = async () => {
       {{ errorMessage }}
     </div>
 
-    <div class="form-group">
-      <label for="firstName">Nombre *</label>
-      <InputText id="firstName" v-model="firstName" class="w-full" :disabled="isLoading" />
-    </div>
+    <div class="flex gap-2">
+      <div class="form-group">
+        <label for="firstName">Nombre *</label>
+        <InputText id="firstName" v-model="firstName" class="w-full" :disabled="isLoading" />
+      </div>
 
-    <div class="form-group">
-      <label for="lastName">Apellido *</label>
-      <InputText id="lastName" v-model="lastName" class="w-full" :disabled="isLoading" />
+      <div class="form-group">
+        <label for="lastName">Apellido *</label>
+        <InputText id="lastName" v-model="lastName" class="w-full" :disabled="isLoading" />
+      </div>
     </div>
 
     <div class="form-group">
@@ -94,13 +96,8 @@ const createCustomer = async () => {
       <Textarea id="bio" v-model="bio" class="w-full" rows="3" :disabled="isLoading" />
     </div>
 
-    <Button
-      :label="isLoading ? 'Creando perfil...' : 'Crear Perfil de Cliente'"
-      severity="warn"
-      class="w-full mt-3"
-      @click="createCustomer"
-      :disabled="isLoading"
-    />
+    <Button :label="isLoading ? 'Creando perfil...' : 'Crear Perfil de Cliente'" severity="warn" class="w-full mt-3"
+      @click="createCustomer" :disabled="isLoading" />
   </div>
 </template>
 

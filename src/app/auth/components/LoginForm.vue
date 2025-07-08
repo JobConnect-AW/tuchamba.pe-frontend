@@ -36,10 +36,24 @@ const login = async () => {
 
     authService.saveAuthData(result.uid, result.email, result.token);
 
-    router.push('/dashboard/customer');
+    const userData = authService.getUserData();
+    const user = await authRepository.getUserByAccountUid(userData?.uid);
+
+    if (result.role === "CUSTOMER") {
+      if (user.customerId) {
+        router.push('/dashboard/customer');
+      } else {
+        router.push('/customer-setup');
+      }
+    } else {
+      if (user.workerId) {
+        router.push('/dashboard/worker');
+      } else {
+        router.push('/worker-setup');
+      }
+    }
   } catch (error) {
-    console.error('Error en login:', error);
-    errorMessage.value = error.message || 'Error al iniciar sesión. Verifica tus credenciales.';
+    errorMessage.value = 'Error al iniciar sesión. Verifica tus credenciales.';
   } finally {
     isLoading.value = false;
   }
@@ -63,14 +77,8 @@ const login = async () => {
       <Password id="password" v-model="password" class="w-full" toggleMask :disabled="isLoading" />
     </div>
 
-    <Button
-      :label="isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'"
-      severity="warn"
-      class="w-full mt-3"
-      @click="login"
-      :loading="isLoading"
-      :disabled="isLoading"
-    />
+    <Button :label="isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'" severity="warn" class="w-full mt-3"
+      @click="login" :loading="isLoading" :disabled="isLoading" />
 
     <div class="links">
       <a href="/password-recovery" class="link">¿Olvidaste tu contraseña?</a>
@@ -82,7 +90,6 @@ const login = async () => {
 </template>
 
 <style scoped>
-
 .login-form {
   max-width: 350px;
   margin: auto;

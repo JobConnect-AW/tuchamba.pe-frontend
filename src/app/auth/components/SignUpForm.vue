@@ -9,12 +9,18 @@ import { ApiAuthRepository } from '../infrastructure/repositories/api-auth.repos
 import { HttpService } from '@/app/shared/infrastructure/services/http.service';
 import { RegistrationService } from '../infrastructure/services/registration.service';
 import { SignUpDTO } from '../application/dtos/sign-up.dto';
+import Select from 'primevue/select';
 
 const router = useRouter();
 const email = ref('');
 const password = ref('');
 const isLoading = ref(false);
 const errorMessage = ref('');
+const role = ref('customer');
+const roles = [
+  { value: 'CUSTOMER', label: 'Cliente' },
+  { value: 'WORKER', label: 'Trabajador' },
+];
 
 const apiAuthRepository = new ApiAuthRepository(new HttpService());
 const signUpUseCase = new SignUpUseCase(apiAuthRepository);
@@ -28,12 +34,17 @@ const signUp = async () => {
       throw new Error('El email y la contraseña son obligatorios');
     }
 
-    const signUpData = new SignUpDTO(email.value, password.value);
+    const signUpData = new SignUpDTO(email.value, password.value, role.value);
     const result = await signUpUseCase.executeSignUp(signUpData);
 
     RegistrationService.saveRegistrationData(result);
 
-    router.push('/profile-setup');
+    if (role.value === 'CUSTOMER') {
+      router.push('/customer-setup');
+    } else {
+      router.push('/worker-setup');
+    }
+
   } catch (error) {
     errorMessage.value = error.message || 'Error al crear la cuenta';
   } finally {
@@ -44,7 +55,7 @@ const signUp = async () => {
 
 <template>
   <div class="login-form">
-     <h2 class="text-2xl !font-bold !mb-5">Registrarse</h2>
+    <h2 class="text-2xl !font-bold !mb-5">Registrarse</h2>
 
     <div v-if="errorMessage" class="error-message">
       {{ errorMessage }}
@@ -58,14 +69,14 @@ const signUp = async () => {
       <label for="password">Contraseña</label>
       <Password id="password" v-model="password" class="w-full" toggleMask :disabled="isLoading" />
     </div>
+    <div class="form-group">
+      <label for="role">Rol</label>
+      <Select id="role" v-model="role" class="w-full" :disabled="isLoading" :options="roles" optionLabel="label"
+        optionValue="value" />
+    </div>
 
-    <Button
-      :label="isLoading ? 'Creando cuenta...' : 'Crear Cuenta'"
-      severity="warn"
-      class="w-full mt-3"
-      @click="signUp"
-      :disabled="isLoading"
-    />
+    <Button :label="isLoading ? 'Creando cuenta...' : 'Crear Cuenta'" severity="warn" class="w-full mt-3"
+      @click="signUp" :disabled="isLoading" />
 
     <div class="links">
       <RouterLink to="/password-recovery" class="link">¿Olvidaste tu contraseña?</RouterLink>
@@ -77,7 +88,6 @@ const signUp = async () => {
 </template>
 
 <style scoped>
-
 .login-form {
   max-width: 350px;
   margin: auto;
