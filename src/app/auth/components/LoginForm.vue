@@ -8,7 +8,7 @@ import { LoginUseCase } from '../application/use-cases/login.usecase';
 import { LoginDTO } from '../application/dtos/sign-up.dto';
 import { ApiAuthRepository } from '../infrastructure/repositories/api-auth.repository';
 import { HttpService } from '../../shared/infrastructure/services/http.service';
-import { AuthService } from '../infrastructure/services/auth.service';
+import { AuthService } from '@/app/shared/infrastructure/services/auth.service';
 
 const router = useRouter();
 const email = ref('');

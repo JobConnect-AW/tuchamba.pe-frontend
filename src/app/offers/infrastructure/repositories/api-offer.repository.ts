@@ -2,7 +2,7 @@ import { HttpService } from '@/app/shared/infrastructure/services/http.service'
 import { Offer } from '../../domain/entities/offer.entity'
 import { OfferRepository } from '../../domain/repositories/offer.repository'
 
-export default class ApiOfferRepository implements OfferRepository {
+export class ApiOfferRepository implements OfferRepository {
   private readonly API_URL = `/offers`
 
   constructor(private readonly httpService: HttpService) {}
@@ -12,18 +12,38 @@ export default class ApiOfferRepository implements OfferRepository {
       userUid,
     })
 
-    return data
+    return (data as any[]).map((offer: any) => Offer.fromPrimitives(offer))
   }
 
   async persist(offer: Offer): Promise<any> {
-    const data = await this.httpService.post(this.API_URL, offer)
+    const backendData = {
+      title: offer.title,
+      description: offer.description,
+      categoryId: this.mapCategoryToId(offer.technicalCategory),
+      amount: offer.estimatedBudget,
+      duration: offer.workSchedule,
+      paymentMethod: offer.paymentMethod,
+      status: "NUEVA"
+    }
 
+    const data = await this.httpService.post(this.API_URL, backendData)
     return data
   }
 
+  private mapCategoryToId(category: string): number {
+    const categoryMap: { [key: string]: number } = {
+      'frontend': 1,
+      'backend': 2,
+      'fullstack': 3
+    }
+    return categoryMap[category] || 1
+  }
+
+
+
   async getByUid(uid: string): Promise<Offer> {
     const data = await this.httpService.get(`${this.API_URL}/${uid}`)
-
-    return data
+    const offer = Offer.fromPrimitives(data as any)
+    return offer
   }
 }

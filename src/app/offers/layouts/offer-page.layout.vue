@@ -2,8 +2,9 @@
 import { ref, computed, onMounted, provide } from 'vue'
 import { useRoute } from 'vue-router'
 import { GetOfferByUidUseCase } from '../application/use-cases/get-offer-by-uid.usecase'
-import ApiOfferRepository from '../infrastructure/repositories/api-offer.repository'
+import { ApiOfferRepository } from '../infrastructure/repositories/api-offer.repository'
 import { HttpService } from '@/app/shared/infrastructure/services/http.service'
+
 import { Button } from 'primevue'
 
 const route = useRoute()

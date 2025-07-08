@@ -1,10 +1,22 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Dropdown from 'primevue/dropdown'
 import Checkbox from 'primevue/checkbox'
 import { Button } from 'primevue'
+import { useRouter } from 'vue-router'
+import { CreateOfferUseCase } from '../application/use-cases/create-offer.usecase'
+import { ApiOfferRepository } from '../infrastructure/repositories/api-offer.repository'
+import { HttpService } from '../../shared/infrastructure/services/http.service'
+
+const router = useRouter()
+const isLoading = ref(false)
+const errorMessage = ref('')
+
+const httpService = new HttpService()
+const apiOfferRepository = new ApiOfferRepository(httpService)
+const createOfferUseCase = new CreateOfferUseCase(apiOfferRepository)
 
 const form = reactive({
   title: '',
@@ -45,18 +57,53 @@ const paymentMethods = [
   { label: 'Pago fijo', value: 'fixed' },
 ]
 
-function submitForm() {
+async function submitForm() {
   if (!form.personalDataConsent) {
-    alert('Debes aceptar el tratamiento de datos personales')
+    errorMessage.value = 'Debes aceptar el tratamiento de datos personales'
     return
   }
-  // Aquí podés enviar el formulario o llamar al use case
-  console.log('Formulario enviado', JSON.stringify(form))
+
+  if (!form.title || !form.description || !form.technicalCategory || !form.requiredExperience || !form.workSchedule || !form.paymentMethod) {
+    errorMessage.value = 'Por favor, completa todos los campos obligatorios'
+    return
+  }
+
+  isLoading.value = true
+  errorMessage.value = ''
+
+  try {
+    const offerData = {
+      title: form.title,
+      description: form.description,
+      technicalCategory: form.technicalCategory,
+      location: form.location,
+      estimatedBudget: parseFloat(form.estimatedBudget) || 0,
+      paymentMethod: form.paymentMethod,
+      requiredExperience: form.requiredExperience,
+      workSchedule: form.workSchedule,
+      notificationsAccepted: form.notificationsAccepted,
+      personalDataConsent: form.personalDataConsent,
+      //userUid: userData.uid
+    }
+
+    await createOfferUseCase.execute(offerData)
+
+    // Redirigir a la lista de ofertas o dashboard
+    router.push('/cliente/ofertas')
+  } catch (error) {
+    console.error('Error al crear oferta:', error)
+    errorMessage.value = error.message || 'Error al crear la oferta. Inténtalo de nuevo.'
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
 
 <template>
   <form @submit.prevent="submitForm" class="flex flex-wrap gap-6">
+    <div v-if="errorMessage" class="error-message w-full">
+      {{ errorMessage }}
+    </div>
     <div class="flex flex-col md:flex-row gap-6 w-full flex-[100%]">
       <!-- Información General -->
       <fieldset class="border border-dashed border-blue-400 rounded p-4 md:flex-1 flex flex-col gap-2">
@@ -178,13 +225,25 @@ function submitForm() {
         </div>
         <Button
           type="submit"
-          :disabled="!form.personalDataConsent"
+          :disabled="!form.personalDataConsent || isLoading"
+          :loading="isLoading"
+          :label="isLoading ? 'Publicando...' : 'Publicar'"
           class="md:col-span-2 mt-4 bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-700 transition"
-        >
-          Publicar
-        </Button>
+        />
       </fieldset>
     </div>
 
   </form>
 </template>
+
+<style scoped>
+.error-message {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #fecaca;
+}
+</style>

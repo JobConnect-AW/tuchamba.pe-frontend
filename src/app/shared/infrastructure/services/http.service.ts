@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+import { AuthService } from './auth.service'
 
 export class HttpService {
   private readonly BASE_URL = import.meta.env.VITE_BASE_URL
@@ -12,6 +13,15 @@ export class HttpService {
         headers: {
           'Content-Type': 'application/json',
         },
+      })
+
+      this.axios.interceptors.request.use((config) => {
+        const authService = new AuthService()
+        const token = authService.getToken()
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`
+        }
+        return config
       })
 
       HttpService.instance = this

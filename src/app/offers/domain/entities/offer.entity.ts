@@ -32,4 +32,42 @@ export class Offer {
     public readonly createdAt?: Date, // Fecha de creación
     public readonly updatedAt?: Date, // Fecha de última actualización
   ) {}
+
+  static fromPrimitives(primitives: OfferPrimitives): Offer {
+    return new Offer(
+      primitives.uid,
+      primitives.userUid,
+      primitives.title,
+      primitives.description,
+      primitives.technicalCategory,
+      primitives.location,
+      primitives.estimatedBudget,
+      primitives.paymentMethod,
+      primitives.requiredExperience,
+      primitives.workSchedule,
+      primitives.notificationsAccepted,
+      primitives.personalDataConsent,
+      primitives.createdAt ? new Date(primitives.createdAt) : undefined,
+      primitives.updatedAt ? new Date(primitives.updatedAt) : undefined
+    )
+  }
+
+  toPrimitives(): OfferPrimitives {
+    return {
+      uid: this.uid,
+      userUid: this.userUid,
+      title: this.title,
+      description: this.description,
+      technicalCategory: this.technicalCategory,
+      location: this.location,
+      estimatedBudget: this.estimatedBudget,
+      paymentMethod: this.paymentMethod,
+      requiredExperience: this.requiredExperience,
+      workSchedule: this.workSchedule,
+      notificationsAccepted: this.notificationsAccepted,
+      personalDataConsent: this.personalDataConsent,
+      createdAt: this.createdAt?.toISOString(),
+      updatedAt: this.updatedAt?.toISOString()
+    }
+  }
 }
