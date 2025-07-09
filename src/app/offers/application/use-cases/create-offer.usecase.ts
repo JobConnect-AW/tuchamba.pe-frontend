@@ -6,17 +6,19 @@ interface CreateOfferDTO {
   uid?: string
   title: string
   description: string
-  technicalCategory: string
-  location: string
-  estimatedBudget: number
+  category: string
+  amount: number
+  duration: string
   paymentMethod: string
-  requiredExperience: string
+  minimumExperience: string
   workSchedule: string
   notificationsAccepted: boolean
   personalDataConsent: boolean
   userUid: string
-  createdAt?: string
-  updatedAt?: string
+  status?: string
+  proposalsCount?: number
+  selectedProposalUid?: string
+  startAt?: string
 }
 
 export class CreateOfferUseCase {
@@ -38,16 +40,16 @@ export class CreateOfferUseCase {
       data.userUid,
       data.title,
       data.description,
-      data.technicalCategory,
-      data.location,
-      +data.estimatedBudget.toFixed(2),
+      data.category,
+      '', // location no se usa más
+      +data.amount.toFixed(2),
       data.paymentMethod,
-      data.requiredExperience,
+      data.minimumExperience,
       data.workSchedule,
       data.notificationsAccepted,
       data.personalDataConsent,
-      new Date(data.createdAt || Date.now()),
-      new Date(data.updatedAt || Date.now()),
+      new Date(data.startAt || Date.now()),
+      new Date(data.startAt || Date.now()),
     )
 
     // Persistir con el repositorio

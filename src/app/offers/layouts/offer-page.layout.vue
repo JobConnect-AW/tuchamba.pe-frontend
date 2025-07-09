@@ -11,7 +11,7 @@ const route = useRoute()
 const offer = ref(null)
 provide('offer', offer)
 
-const apiOfferRepository = new ApiOfferRepository(new HttpService())
+const apiOfferRepository = new ApiOfferRepository(HttpService.getInstance())
 
 const isNewOfferPath = computed(() => route.path === '/cliente/ofertas/oferta/crear')
 

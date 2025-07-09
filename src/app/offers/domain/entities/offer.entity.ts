@@ -3,11 +3,22 @@ export interface OfferPrimitives {
   userUid: string
   title: string
   description: string
-  technicalCategory: string
-  location: string
-  estimatedBudget: number
+  // Campos originales (para compatibilidad)
+  technicalCategory?: string
+  location?: string
+  estimatedBudget?: number
+  requiredExperience?: string
+  // Nuevos campos del backend
+  category?: string
+  amount?: number
+  duration?: string
+  status?: string
+  minimumExperience?: string
+  proposalsCount?: number
+  selectedProposalUid?: string | null
+  startAt?: string
+  // Campos comunes
   paymentMethod: string
-  requiredExperience: string
   workSchedule: string
   notificationsAccepted: boolean
   personalDataConsent: boolean
@@ -39,11 +50,11 @@ export class Offer {
       primitives.userUid,
       primitives.title,
       primitives.description,
-      primitives.technicalCategory,
-      primitives.location,
-      primitives.estimatedBudget,
+      primitives.technicalCategory || primitives.category || '',
+      primitives.location || primitives.duration || '',
+      primitives.estimatedBudget || primitives.amount || 0,
       primitives.paymentMethod,
-      primitives.requiredExperience,
+      primitives.requiredExperience || primitives.minimumExperience || '',
       primitives.workSchedule,
       primitives.notificationsAccepted,
       primitives.personalDataConsent,
@@ -58,12 +69,16 @@ export class Offer {
       userUid: this.userUid,
       title: this.title,
       description: this.description,
-      technicalCategory: this.technicalCategory,
-      location: this.location,
-      estimatedBudget: this.estimatedBudget,
+      category: this.technicalCategory,
+      amount: this.estimatedBudget,
+      duration: this.location,
       paymentMethod: this.paymentMethod,
-      requiredExperience: this.requiredExperience,
+      status: 'ACTIVE',
+      minimumExperience: this.requiredExperience,
       workSchedule: this.workSchedule,
+      proposalsCount: 0,
+      selectedProposalUid: null,
+      startAt: this.createdAt?.toISOString() || new Date().toISOString(),
       notificationsAccepted: this.notificationsAccepted,
       personalDataConsent: this.personalDataConsent,
       createdAt: this.createdAt?.toISOString(),

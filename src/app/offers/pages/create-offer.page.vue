@@ -9,25 +9,25 @@ import { useRouter } from 'vue-router'
 import { CreateOfferUseCase } from '../application/use-cases/create-offer.usecase'
 import { ApiOfferRepository } from '../infrastructure/repositories/api-offer.repository'
 import { HttpService } from '../../shared/infrastructure/services/http.service'
+import { AuthService } from '@/app/shared/infrastructure/services/auth.service'
 
 const router = useRouter()
 const isLoading = ref(false)
 const errorMessage = ref('')
 
-const httpService = new HttpService()
+const httpService = HttpService.getInstance()
+const authService = new AuthService()
 const apiOfferRepository = new ApiOfferRepository(httpService)
 const createOfferUseCase = new CreateOfferUseCase(apiOfferRepository)
 
 const form = reactive({
   title: '',
   description: '',
-  technicalCategory: null,
-  location: '',
-  requiredLanguages: '',
-  requiredExperience: null,
-  certifications: '',
+  category: null,
+  duration: '',
+  minimumExperience: null,
   workSchedule: null,
-  estimatedBudget: '',
+  amount: '',
   paymentMethod: null,
   notificationsAccepted: false,
   personalDataConsent: false,
@@ -63,7 +63,7 @@ async function submitForm() {
     return
   }
 
-  if (!form.title || !form.description || !form.technicalCategory || !form.requiredExperience || !form.workSchedule || !form.paymentMethod) {
+  if (!form.title || !form.description || !form.category || !form.minimumExperience || !form.workSchedule || !form.paymentMethod || !form.duration) {
     errorMessage.value = 'Por favor, completa todos los campos obligatorios'
     return
   }
@@ -72,18 +72,28 @@ async function submitForm() {
   errorMessage.value = ''
 
   try {
+    const userData = authService.getUserData()
+    if (!userData) {
+      errorMessage.value = 'Debes iniciar sesión para crear una oferta'
+      router.push('/login')
+      return
+    }
+
     const offerData = {
       title: form.title,
       description: form.description,
-      technicalCategory: form.technicalCategory,
-      location: form.location,
-      estimatedBudget: parseFloat(form.estimatedBudget) || 0,
+      category: form.category,
+      amount: parseFloat(form.amount) || 0,
+      duration: form.duration,
       paymentMethod: form.paymentMethod,
-      requiredExperience: form.requiredExperience,
+      minimumExperience: form.minimumExperience,
       workSchedule: form.workSchedule,
-      notificationsAccepted: form.notificationsAccepted,
+      userUid: userData.uid,
       personalDataConsent: form.personalDataConsent,
-      //userUid: userData.uid
+      notificationsAccepted: form.notificationsAccepted,
+      status: 'ACTIVE',
+      proposalsCount: 0,
+      startAt: new Date().toISOString()
     }
 
     await createOfferUseCase.execute(offerData)
@@ -125,20 +135,20 @@ async function submitForm() {
         </div>
 
         <div class="flex flex-col mb-4">
-          <label for="technicalCategory" class="mb-1 font-medium">Categoría Técnica</label>
+          <label for="category" class="mb-1 font-medium">Categoría</label>
           <Dropdown
-            id="technicalCategory"
-            v-model="form.technicalCategory"
+            id="category"
+            v-model="form.category"
             :options="technicalCategories"
             optionLabel="label"
             optionValue="value"
-            placeholder="Seleccionar Trabajo*"
+            placeholder="Seleccionar Categoría*"
           />
         </div>
 
         <div class="flex flex-col">
-          <label for="location" class="mb-1 font-medium">Dirección</label>
-          <InputText id="location" v-model="form.location" placeholder="Escribe aquí" />
+          <label for="duration" class="mb-1 font-medium">Duración</label>
+          <InputText id="duration" v-model="form.duration" placeholder="Ej: 2 semanas, 1 mes" />
         </div>
       </fieldset>
 
@@ -147,12 +157,12 @@ async function submitForm() {
         <legend class="px-2 text-blue-600 font-semibold">Requisitos del técnico</legend>
 
         <div class="flex flex-col mb-4">
-          <label for="requiredExperience" class="mb-1 font-medium"
+          <label for="minimumExperience" class="mb-1 font-medium"
             >Experiencia Mínima Requerida</label
           >
           <Dropdown
-            id="requiredExperience"
-            v-model="form.requiredExperience"
+            id="minimumExperience"
+            v-model="form.minimumExperience"
             :options="experiences"
             optionLabel="label"
             optionValue="value"
@@ -178,8 +188,8 @@ async function submitForm() {
         <legend class="px-2 text-blue-600 font-semibold">Compensación y Beneficios</legend>
 
         <div class="flex flex-col mb-4">
-          <label for="estimatedBudget" class="mb-1 font-medium">Presupuesto Estimado</label>
-          <InputText id="estimatedBudget" v-model="form.estimatedBudget" placeholder="Escribe aquí" />
+          <label for="amount" class="mb-1 font-medium">Monto</label>
+          <InputText id="amount" v-model="form.amount" placeholder="Escribe aquí" />
         </div>
 
         <div class="flex flex-col">

@@ -22,7 +22,7 @@ const roles = [
   { value: 'WORKER', label: 'Trabajador' },
 ];
 
-const apiAuthRepository = new ApiAuthRepository(new HttpService());
+const apiAuthRepository = new ApiAuthRepository(HttpService.getInstance());
 const signUpUseCase = new SignUpUseCase(apiAuthRepository);
 
 const signUp = async () => {

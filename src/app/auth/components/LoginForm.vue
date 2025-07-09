@@ -16,7 +16,7 @@ const password = ref('');
 const isLoading = ref(false);
 const errorMessage = ref('');
 
-const httpService = new HttpService();
+const httpService = HttpService.getInstance();
 const authRepository = new ApiAuthRepository(httpService);
 const loginUseCase = new LoginUseCase(authRepository);
 const authService = new AuthService();
