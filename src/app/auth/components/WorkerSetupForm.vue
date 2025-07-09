@@ -34,10 +34,11 @@ const createWorker = async () => {
     isLoading.value = true;
     errorMessage.value = '';
 
-    const registrationData = RegistrationService.getRegistrationData();
-    if (!registrationData) {
-      router.push('/sign-up');
-      return;
+    const authService = new AuthService();
+    const token = authService.getToken();
+
+    if (!token) {
+      return router.push('/sign-up');
     }
 
     if (!firstName.value || !lastName.value) {
@@ -49,7 +50,7 @@ const createWorker = async () => {
       firstName.value,
       lastName.value,
       phone.value,
-      'worker',
+      'WORKER',
       location.value,
       bio.value,
       skills.value || [],
@@ -58,11 +59,11 @@ const createWorker = async () => {
       avatar.value || ''
     );
 
-    await signUpUseCase.executeCreateWorker(workerData, registrationData.token);
+    await signUpUseCase.executeCreateWorker(workerData, token);
 
     RegistrationService.clearRegistrationData();
 
-    router.push('/sign-in');
+    router.push('/dashboard/worker');
   } catch (error) {
     errorMessage.value = error.message || 'Error al crear el perfil de trabajador';
   } finally {
@@ -116,21 +117,18 @@ const createWorker = async () => {
 
     <div class="form-group">
       <label for="certifications">Certificaciones</label>
-      <Chips id="certifications" v-model="certifications" class="w-full" :disabled="isLoading" placeholder="Agrega tus certificaciones" />
+      <Chips id="certifications" v-model="certifications" class="w-full" :disabled="isLoading"
+        placeholder="Agrega tus certificaciones" />
     </div>
 
     <div class="form-group">
       <label for="avatar">URL del Avatar</label>
-      <InputText id="avatar" v-model="avatar" class="w-full" :disabled="isLoading" placeholder="https://ejemplo.com/avatar.jpg" />
+      <InputText id="avatar" v-model="avatar" class="w-full" :disabled="isLoading"
+        placeholder="https://ejemplo.com/avatar.jpg" />
     </div>
 
-    <Button
-      :label="isLoading ? 'Creando perfil...' : 'Crear Perfil de Trabajador'"
-      severity="warn"
-      class="w-full mt-3"
-      @click="createWorker"
-      :disabled="isLoading"
-    />
+    <Button :label="isLoading ? 'Creando perfil...' : 'Crear Perfil de Trabajador'" severity="warn" class="w-full mt-3"
+      @click="createWorker" :disabled="isLoading" />
   </div>
 </template>
 

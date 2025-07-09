@@ -34,7 +34,6 @@
 .panel-card {
     aspect-ratio: 1;
     min-height: 350px;
-    max-height: 400px;
     border-radius: 15px;
     background-color: #FFFFFF;
     padding: 1rem;

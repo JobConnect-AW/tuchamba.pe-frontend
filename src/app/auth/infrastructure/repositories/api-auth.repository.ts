@@ -86,4 +86,6 @@ export class ApiAuthRepository implements AuthRepository {
       throw new Error(`Error al obtener usuario: ${error.response?.data?.message || error.message}`)
     }
   }
+
+ 
 }

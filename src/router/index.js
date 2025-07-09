@@ -6,8 +6,6 @@ import Configuracion from '@/app/worker/views/Configuracion.vue';
 import MyProfileTrabajador from '@/app/worker/views/MyProfile-Trabajador.vue';
 import Planes from '@/app/worker/views/Planes.vue';
 import SearchOffers from '@/app/offers/pages/SearchOffers.vue';
-import CompararPerfiles from '@/app/userContext/pages/CompararPerfiles.vue';
-import Home from '@/app/userContext/pages/Home.vue';
 import BuscarTecnicos from '@/app/userContext/pages/BuscarTecnicos.vue';
 import PagoPlan from '@/app/worker/views/PagoPlan.vue'
 import MyReputation from "@/app/worker/views/MyReputation.vue";

@@ -10,6 +10,7 @@ import { HttpService } from '@/app/shared/infrastructure/services/http.service';
 import { RegistrationService } from '../infrastructure/services/registration.service';
 import { CreateCustomerDTO } from '../application/dtos/sign-up.dto';
 import { v4 } from 'uuid';
+import { AuthService } from '@/app/shared/infrastructure/services/auth.service';
 
 const router = useRouter();
 const firstName = ref('');
@@ -28,14 +29,14 @@ const createCustomer = async () => {
     isLoading.value = true;
     errorMessage.value = '';
 
-    const registrationData = RegistrationService.getRegistrationData();
-    if (!registrationData) {
-      router.push('/sign-up');
-      return;
-    }
-
     if (!firstName.value || !lastName.value) {
       throw new Error('El nombre y apellido son obligatorios');
+    }
+    const authService = new AuthService();
+    const token = authService.getToken();
+
+    if (!token) {
+      return router.push('/sign-up');
     }
 
     const customerData = new CreateCustomerDTO(
@@ -48,11 +49,11 @@ const createCustomer = async () => {
       bio.value
     );
 
-    await signUpUseCase.executeCreateCustomer(customerData, registrationData.token);
+    await signUpUseCase.executeCreateCustomer(customerData, token);
 
     RegistrationService.clearRegistrationData();
 
-    router.push('/sign-in');
+    router.push('/dashboard/customer');
   } catch (error) {
     errorMessage.value = error.message || 'Error al crear el perfil de cliente';
   } finally {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://localhost:5000/technicians';
+const API = `https://tuchamba-pe-backend-full-1.fly.dev/api/v1/workers`;
 
 export const techniciansService = {
   /** Devuelve un array de técnicos */

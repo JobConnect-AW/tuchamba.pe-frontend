@@ -6,26 +6,23 @@
     <div class="flex flex-col items-center">
       <img :src="userImg" alt="User Avatar" class="user-avatar" />
       <h2 class="user-name text-white !text-base">James Cooper</h2>
-      <RouterLink
-        :to="{ name: 'configuracion' }"
-        class="user-role !text-gray-100 !text-xs hover:!bg-transparent"
-      >
-        Personalizar Perfil</RouterLink
-      >
+      <RouterLink :to="{ name: 'configuracion' }" class="user-role !text-gray-100 !text-xs hover:!bg-transparent">
+        Personalizar Perfil</RouterLink>
     </div>
 
     <ul class="flex flex-1 flex-col justify-center 2xl:justify-start gap-2">
       <li v-for="item in navItems" :key="item.name">
-        <RouterLink
-          :to="{ name: item.name }"
-          activeClass="bg-[#1c4790]"
-          class="flex flex-col gap-2 items-center justify-center !text-white cursor-pointer hover:!bg-[#1c4790] rounded-lg !py-2 transition-all duration-200"
-        >
+        <RouterLink :to="{ name: item.name }" activeClass="bg-[#1c4790]"
+          class="flex flex-col gap-2 items-center justify-center !text-white cursor-pointer hover:!bg-[#1c4790] rounded-lg !py-2 transition-all duration-200">
           <i :class="item.icon" class="!text-base"></i>
           <span class="text-center text-xs">{{ item.label }}</span>
         </RouterLink>
       </li>
     </ul>
+
+    <div class="flex flex-col gap-2">
+      <Button label="Cerrar sesión" severity="warn" class="w-full" @click="logout" />
+    </div>
   </nav>
 </template>
 
@@ -33,6 +30,8 @@
 import { RouterLink, useRouter } from 'vue-router'
 import userAvatar from '../../assets/User1.png'
 import { defineProps } from 'vue'
+import Button from 'primevue/button'
+import { AuthService } from '@/app/shared/infrastructure/services/auth.service'
 
 const props = defineProps({
   isMobile: {
@@ -61,4 +60,10 @@ const navItems = [
   },
   { name: 'configuracion', route: 'configuracion', icon: 'pi pi-cog', label: 'Configuración' },
 ]
+
+const logout = () => {
+  const authService = new AuthService();
+  authService.logout();
+  router.push('/login');
+}
 </script>
