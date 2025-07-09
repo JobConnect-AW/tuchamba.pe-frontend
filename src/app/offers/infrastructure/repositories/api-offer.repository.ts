@@ -19,11 +19,18 @@ export class ApiOfferRepository implements OfferRepository {
     const backendData = {
       title: offer.title,
       description: offer.description,
-      categoryId: this.mapCategoryToId(offer.technicalCategory),
+      category: offer.technicalCategory,
       amount: offer.estimatedBudget,
-      duration: offer.workSchedule,
+      duration: offer.location,
       paymentMethod: offer.paymentMethod,
-      status: "NUEVA"
+      minimumExperience: offer.requiredExperience,
+      workSchedule: offer.workSchedule,
+      userUid: offer.userUid,
+      personalDataConsent: offer.personalDataConsent,
+      notificationsAccepted: offer.notificationsAccepted,
+      status: "NUEVA",
+      proposalsCount: 0,
+      startAt: new Date().toISOString()
     }
 
     const data = await this.httpService.post(this.API_URL, backendData)

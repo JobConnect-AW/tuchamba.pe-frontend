@@ -26,7 +26,7 @@ const avatar = ref('');
 const isLoading = ref(false);
 const errorMessage = ref('');
 
-const apiAuthRepository = new ApiAuthRepository(new HttpService());
+const apiAuthRepository = new ApiAuthRepository(HttpService.getInstance());
 const signUpUseCase = new SignUpUseCase(apiAuthRepository);
 
 const createWorker = async () => {

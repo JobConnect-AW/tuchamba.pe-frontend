@@ -30,6 +30,13 @@ export class HttpService {
     return HttpService.instance
   }
 
+  static getInstance(): HttpService {
+    if (!HttpService.instance) {
+      HttpService.instance = new HttpService()
+    }
+    return HttpService.instance
+  }
+
   async get<T>(url: string, queryParams?: Record<string, any>): Promise<T> {
     if (!this.axios) throw new Error('Axios instance not initialized')
     const response = await this.axios.get<T>(url, { params: queryParams })
